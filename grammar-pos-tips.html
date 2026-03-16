@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>品詞8種 + 学習のコツ（S/V/O/Cカラー表示）| 文法構造ガイド</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Noto+Sans+Thai:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#06080e;--bg2:#090c14;--surf:#0d1220;--surf2:#111828;--bdr:#1a2840;--bdr2:#243550;--text:#dce8f8;--dim:#6888aa;--muted:#2d4460;--en:#4a9eff;--en-bg:rgba(74,158,255,.1);--en-bdr:rgba(74,158,255,.2);--th:#ff7c44;--th-bg:rgba(255,124,68,.1);--th-bdr:rgba(255,124,68,.2);--ja:#3ecf8e;--ja-bg:rgba(62,207,142,.1);--ja-bdr:rgba(62,207,142,.2);--gold:#f0bc30;--gold-bg:rgba(240,188,48,.1);--gold-bdr:rgba(240,188,48,.25);--violet:#a78bfa;--tip:#f59e0b;--tip-bg:rgba(245,158,11,.08);--warn-bg:rgba(239,68,68,.08);--r:10px;--r2:7px;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Zen Kaku Gothic New','Noto Sans Thai',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:15px;line-height:1.65;}
+.top-nav{background:var(--surf);border-bottom:1px solid var(--bdr);padding:0 18px;position:sticky;top:0;z-index:300;backdrop-filter:blur(14px);}
+.top-nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:6px;overflow-x:auto;padding:10px 0;}
+.top-nav-inner::-webkit-scrollbar{display:none;}
+.tnbtn{padding:8px 16px;border:1px solid var(--bdr);background:transparent;color:var(--dim);border-radius:100px;font-size:.78rem;font-weight:600;white-space:nowrap;text-decoration:none;transition:all .18s;}
+.tnbtn:hover{color:var(--text);border-color:var(--bdr2);}
+.tnbtn.cur{background:var(--gold);border-color:var(--gold);color:#06080e;}
+.page-hero{background:linear-gradient(155deg,#07101e 0%,#0d1c30 45%,#091420 100%);border-bottom:1px solid var(--bdr);padding:40px 24px 32px;text-align:center;position:relative;overflow:hidden;}
+.page-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--gold-bg);border:1px solid var(--gold-bdr);color:var(--gold);font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 16px;border-radius:100px;margin-bottom:16px;}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,4vw,2.5rem);font-style:italic;background:linear-gradient(140deg,#dce8f8 30%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;}
+.page-hero p{color:var(--dim);font-size:.86rem;max-width:540px;margin:0 auto;}
+.ctn{max-width:1200px;margin:0 auto;padding:28px 18px 72px;}
+.sh{margin-bottom:24px;}.sh-title{font-size:1.4rem;font-weight:700;margin-bottom:5px;}.sh-sub{color:var(--dim);font-size:.85rem;}
+.intro-banner{background:linear-gradient(135deg,var(--en-bg),var(--surf2));border:1px solid var(--en-bdr);border-radius:var(--r);padding:18px 22px;margin-bottom:24px;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;}
+.intro-icon{font-size:1.6rem;}
+.intro-banner h3{font-size:.92rem;font-weight:700;color:var(--en);margin-bottom:6px;}
+.intro-banner p{font-size:.82rem;color:var(--dim);line-height:1.65;margin-bottom:5px;}
+.intro-banner p:last-child{margin:0;}
+.hl-en{color:var(--en);font-weight:700;}.hl-th{color:var(--th);font-weight:700;}.hl-g{color:var(--gold);font-weight:700;}
+del{text-decoration:line-through;color:#ef4444;opacity:.7;}u{text-decoration:underline;color:var(--ja);}
+@media(max-width:768px){.ctn{padding:18px 12px 60px;}}
+</style>
+
+<style>
+/* S/V/O/C color tokens — shared with 5patterns */
+:root{
+  --cs:#4a9eff;--cs-bg:rgba(74,158,255,.13);--cs-bdr:rgba(74,158,255,.4);
+  --cv:#ff7c44;--cv-bg:rgba(255,124,68,.13);--cv-bdr:rgba(255,124,68,.4);
+  --co:#3ecf8e;--co-bg:rgba(62,207,142,.13);--co-bdr:rgba(62,207,142,.4);
+  --cc:#f0bc30;--cc-bg:rgba(240,188,48,.13);--cc-bdr:rgba(240,188,48,.4);
+  --cmod:#c084fc;--cmod-bg:rgba(192,132,252,.12);--cmod-bdr:rgba(192,132,252,.35);
+  --cadv:#22d3ee;--cadv-bg:rgba(34,211,238,.1);--cadv-bdr:rgba(34,211,238,.3);
+  --cprep:#f97316;--cprep-bg:rgba(249,115,22,.1);--cprep-bdr:rgba(249,115,22,.3);
+  --cconj:#a3e635;--cconj-bg:rgba(163,230,53,.1);--cconj-bdr:rgba(163,230,53,.3);
+  --cadj:#fb923c;--cadj-bg:rgba(251,146,60,.1);--cadj-bdr:rgba(251,146,60,.3);
+}
+
+/* inline token */
+.tok{display:inline;border-radius:4px;padding:1px 6px;font-weight:600;line-height:1.9;cursor:default;white-space:nowrap;}
+.tok-s{background:var(--cs-bg);border:1px solid var(--cs-bdr);color:var(--cs);}
+.tok-v{background:var(--cv-bg);border:1px solid var(--cv-bdr);color:var(--cv);}
+.tok-o{background:var(--co-bg);border:1px solid var(--co-bdr);color:var(--co);}
+.tok-c{background:var(--cc-bg);border:1px solid var(--cc-bdr);color:var(--cc);}
+.tok-m{background:var(--cmod-bg);border:1px solid var(--cmod-bdr);color:var(--cmod);}
+.tok-a{background:var(--cadv-bg);border:1px solid var(--cadv-bdr);color:var(--cadv);}
+.tok-p{background:var(--cprep-bg);border:1px solid var(--cprep-bdr);color:var(--cprep);}
+.tok-j{background:var(--cconj-bg);border:1px solid var(--cconj-bdr);color:var(--cconj);}
+.tok-adj{background:var(--cadj-bg);border:1px solid var(--cadj-bdr);color:var(--cadj);}
+.tok-n{background:var(--cs-bg);border:1px solid var(--cs-bdr);color:var(--cs);}  /* noun same as S */
+.tok sup{font-size:.52em;font-weight:800;opacity:.75;margin-left:1px;vertical-align:super;}
+
+/* legend */
+.legend{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:20px;padding:12px 16px;background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);}
+.litem{display:flex;align-items:center;gap:5px;font-size:.76rem;font-weight:600;}
+.ldot{width:30px;height:22px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:800;font-family:'JetBrains Mono',monospace;}
+.ld-s{background:var(--cs-bg);border:1px solid var(--cs-bdr);color:var(--cs);}
+.ld-v{background:var(--cv-bg);border:1px solid var(--cv-bdr);color:var(--cv);}
+.ld-o{background:var(--co-bg);border:1px solid var(--co-bdr);color:var(--co);}
+.ld-c{background:var(--cc-bg);border:1px solid var(--cc-bdr);color:var(--cc);}
+.ld-m{background:var(--cmod-bg);border:1px solid var(--cmod-bdr);color:var(--cmod);}
+.ld-a{background:var(--cadv-bg);border:1px solid var(--cadv-bdr);color:var(--cadv);}
+.ld-p{background:var(--cprep-bg);border:1px solid var(--cprep-bdr);color:var(--cprep);}
+.ld-j{background:var(--cconj-bg);border:1px solid var(--cconj-bdr);color:var(--cconj);}
+.ld-adj{background:var(--cadj-bg);border:1px solid var(--cadj-bdr);color:var(--cadj);}
+.lname{color:var(--dim);}
+
+/* tabs */
+.tab-row{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap;}
+.tabBtn{padding:9px 20px;border:1px solid var(--bdr);background:transparent;color:var(--dim);border-radius:100px;cursor:pointer;font-family:inherit;font-size:.81rem;font-weight:600;transition:all .18s;white-space:nowrap;}
+.tabBtn:hover{color:var(--text);border-color:var(--bdr2);}
+.tabBtn.active{background:var(--gold);border-color:var(--gold);color:#06080e;}
+.tab-sec{display:none;}.tab-sec.active{display:block;}
+
+/* POS cards */
+.pos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;}
+.pos-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);padding:20px;transition:transform .2s,box-shadow .2s,border-color .2s;overflow:hidden;position:relative;}
+.pos-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.45);border-color:var(--bdr2);}
+.pos-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.pc1::before{background:linear-gradient(90deg,var(--cs),#7ec8ff);}
+.pc2::before{background:linear-gradient(90deg,#a78bfa,#d4a8ff);}
+.pc3::before{background:linear-gradient(90deg,var(--cv),#ffaa77);}
+.pc4::before{background:linear-gradient(90deg,var(--cadj),#ffd09a);}
+.pc5::before{background:linear-gradient(90deg,var(--cadv),#88eeff);}
+.pc6::before{background:linear-gradient(90deg,var(--cprep),#ffb380);}
+.pc7::before{background:linear-gradient(90deg,var(--cconj),#d4f08a);}
+.pc8::before{background:linear-gradient(90deg,var(--cc),#ffe585);}
+
+.pos-n{font-family:'JetBrains Mono',monospace;font-size:.65rem;color:var(--muted);margin-bottom:4px;}
+.pos-badge{display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;}
+.pos-ic{font-size:1.4rem;}
+.pos-en{font-size:1.15rem;font-weight:700;margin-bottom:2px;}
+.pos-ja{font-size:.84rem;color:var(--dim);margin-bottom:10px;}
+.pos-abbr{font-family:'JetBrains Mono',monospace;font-size:.72rem;font-weight:700;padding:2px 8px;border-radius:4px;margin-left:6px;}
+
+.pos-def{font-size:.82rem;color:var(--dim);line-height:1.65;margin-bottom:12px;padding:9px 12px;background:var(--surf2);border-radius:var(--r2);border-left:3px solid var(--gold);}
+.pos-role{font-size:.79rem;color:var(--dim);margin-bottom:12px;line-height:1.6;}
+.pos-role strong{color:var(--text);}
+
+/* color-coded example sentences */
+.pos-exs{display:flex;flex-direction:column;gap:8px;margin-bottom:12px;}
+.pos-ex-box{background:var(--bg2);border:1px solid var(--bdr);border-radius:var(--r2);padding:10px 12px;}
+.pos-ex-en{font-size:.9rem;line-height:1.9;margin-bottom:5px;}
+.pos-ex-jp{font-size:.76rem;color:var(--dim);margin-bottom:6px;}
+.pos-ex-note{font-size:.72rem;color:var(--muted);font-family:'JetBrains Mono',monospace;}
+
+.pos-tags{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px;}
+.pos-tag{font-family:'JetBrains Mono',monospace;background:var(--surf2);border:1px solid var(--bdr2);color:var(--dim);font-size:.69rem;padding:2px 7px;border-radius:4px;}
+.pos-tip{font-size:.79rem;color:var(--dim);padding:9px 11px;background:var(--tip-bg);border-left:3px solid var(--tip);border-radius:0 var(--r2) var(--r2) 0;line-height:1.6;}
+
+/* tips */
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;}
+.tip-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);padding:20px;}
+.tip-card h3{font-size:.92rem;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.tip-card ul{padding-left:16px;}
+.tip-card li{font-size:.82rem;color:var(--dim);margin-bottom:9px;line-height:1.65;}
+.tip-card li strong{color:var(--gold);}
+.tip-card code{font-family:'JetBrains Mono',monospace;background:var(--surf2);padding:1px 5px;border-radius:3px;font-size:.8rem;color:var(--en);}
+del{text-decoration:line-through;color:#ef4444;opacity:.7;}
+u{text-decoration:underline;color:var(--ja);}
+
+/* Comparison table for tips */
+.cmp-table{width:100%;border-collapse:collapse;font-size:.82rem;margin:12px 0;}
+.cmp-table th{background:var(--surf2);padding:8px 11px;text-align:left;font-weight:700;border-bottom:1px solid var(--bdr);color:var(--dim);}
+.cmp-table td{padding:8px 11px;border-bottom:1px solid var(--bdr);vertical-align:top;}
+.cmp-table tr:last-child td{border-bottom:none;}
+.cmp-table tr:hover td{background:var(--surf2);}
+.ct-en{font-family:'JetBrains Mono',monospace;color:var(--en);font-weight:600;}
+.ct-th{font-family:'Noto Sans Thai',sans-serif;color:var(--th);}
+</style>
+</head>
+<body>
+<div class="top-nav"><div class="top-nav-inner"><a class="tnbtn" href="index.html">🏠 TOP</a><a class="tnbtn" href="grammar-5patterns.html">📐 5文型</a><a class="tnbtn" href="grammar-constructs-A.html">📝 構文 #1-35</a><a class="tnbtn" href="grammar-constructs-B.html">📝 構文 #36-70</a><a class="tnbtn cur" href="grammar-pos-tips.html">🏷 品詞・tips</a><a class="tnbtn" href="ipa-phonetics.html">🎙 発音記号</a><a class="tnbtn" href="thai2000.html">🇹🇭 タイ語2000語</a></div></div>
+<div class="page-hero">
+  <div class="hero-badge">PARTS OF SPEECH + TIPS · COLOR CODED</div>
+  <h1>品詞8種類 + 学習のコツ</h1>
+  <p>各品詞の例文を <span style="color:var(--cs);font-weight:700">S</span>・<span style="color:var(--cv);font-weight:700">V</span>・<span style="color:var(--co);font-weight:700">O</span>・<span style="color:var(--cc);font-weight:700">C</span> カラーコードで視覚化。それぞれの品詞が文型のどこに現れるかを一目で把握できます。</p>
+</div>
+<div class="ctn">
+
+<!-- Color Legend -->
+<div class="legend">
+  <span class="litem"><span class="ldot ld-s">S</span><span class="lname">主語</span></span>
+  <span class="litem"><span class="ldot ld-v">V</span><span class="lname">動詞</span></span>
+  <span class="litem"><span class="ldot ld-o">O</span><span class="lname">目的語</span></span>
+  <span class="litem"><span class="ldot ld-c">C</span><span class="lname">補語</span></span>
+  <span class="litem"><span class="ldot ld-m">M</span><span class="lname">助動詞</span></span>
+  <span class="litem"><span class="ldot ld-a">副</span><span class="lname">副詞句</span></span>
+  <span class="litem"><span class="ldot ld-p">prep</span><span class="lname">前置詞</span></span>
+  <span class="litem"><span class="ldot ld-j">conj</span><span class="lname">接続詞</span></span>
+  <span class="litem"><span class="ldot ld-adj">adj</span><span class="lname">形容詞</span></span>
+</div>
+
+<!-- Tabs -->
+<div class="tab-row">
+  <button class="tabBtn active" onclick="showTab('pos',this)">🏷 品詞8種類（カラー例文付き）</button>
+  <button class="tabBtn" onclick="showTab('tips',this)">💡 学習のコツ &amp; ミスTOP8</button>
+</div>
+
+<div class="tab-sec active" id="pos">
+  <div class="sh">
+    <div class="sh-title">品詞一覧（Parts of Speech）8種類</div>
+    <div class="sh-sub">各例文はS/V/O/Cと品詞をカラーラベルで表示。辞書の略語（n./v./adj./adv.）との対応も確認できます。</div>
+  </div>
+  <div class="pos-grid"><div class="pos-card pc1">
+  <div class="pos-n">#1/8</div>
+  <div class="pos-badge">
+    <span class="pos-ic">📦</span>
+    <div>
+      <div class="pos-en" style="color:var(--cs)">Noun</div>
+      <div class="pos-ja">名詞 <span class="pos-abbr" style="background:var(--cs)22;color:var(--cs);border:1px solid var(--cs)44">n.</span></div>
+    </div>
+  </div>
+  <div class="pos-def">人・場所・物・概念・感情など、世界のあらゆるものの「名前」を表す語。文の主語・目的語・補語になる。種類：普通名詞・固有名詞・集合名詞・不可算名詞・抽象名詞。</div>
+  <div class="pos-role">役割：<strong>S（主語）・O（目的語）・C（補語）</strong>として使われる。前置詞の後にも必ず名詞が来る。</div>
+  <div class="pos-exs"><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-n">The book<sup>S(名詞)</sup></span> is on <span class="tok tok-n">the table<sup>名詞</sup></span>.</div>
+  <div class="pos-ex-jp">本がテーブルの上にある。</div>
+  <div class="pos-ex-note">Noun as S + Noun after preposition</div>
+</div><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-s">She<sup>S</sup></span> <span class="tok tok-v">loves<sup>V</sup></span> <span class="tok tok-n">music<sup>O(名詞)</sup></span>.</div>
+  <div class="pos-ex-jp">彼女は音楽が大好きだ。</div>
+  <div class="pos-ex-note">Noun as O（目的語）</div>
+</div><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-n">Happiness<sup>S(抽象名詞)</sup></span> <span class="tok tok-v">is<sup>V</sup></span> <span class="tok tok-c">a choice<sup>C(名詞)</sup></span>.</div>
+  <div class="pos-ex-jp">幸福は選択だ。</div>
+  <div class="pos-ex-note">Abstract noun as S、Noun as C</div>
+</div></div>
+  <div class="pos-tags"><span class="pos-tag">n.</span><span class="pos-tag">singular / plural</span><span class="pos-tag">countable / uncountable</span></div>
+  <div class="pos-tip">💡 辞書で「n.」と表示。冠詞（a/an/the）の後は必ず名詞。同じ単語が名詞にも動詞にもなるものが多い：book（名詞=本 / 動詞=予約する）、work（名詞=仕事 / 動詞=働く）。</div>
+</div>
+<div class="pos-card pc2">
+  <div class="pos-n">#2/8</div>
+  <div class="pos-badge">
+    <span class="pos-ic">👤</span>
+    <div>
+      <div class="pos-en" style="color:#a78bfa">Pronoun</div>
+      <div class="pos-ja">代名詞 <span class="pos-abbr" style="background:#a78bfa22;color:#a78bfa;border:1px solid #a78bfa44">pron.</span></div>
+    </div>
+  </div>
+  <div class="pos-def">名詞の繰り返しを避けるために名詞の代わりに使う語。人称・指示・疑問・関係・不定代名詞などに分類される。</div>
+  <div class="pos-role">役割：名詞と同様に<strong>S・O・C</strong>になる。格変化（I→my→me→mine）がある。名詞の代わりなので文型上の働きは名詞と同じ。</div>
+  <div class="pos-exs"><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-s">She<sup>S(代名詞)</sup></span> <span class="tok tok-v">gave<sup>V</sup></span> <span class="tok tok-o">him<sup>O(代名詞・目的格)</sup></span> <span class="tok tok-o" style="opacity:.75">the book<sup>O₂</sup></span>.</div>
+  <div class="pos-ex-jp">彼女は彼に本をあげた。</div>
+  <div class="pos-ex-note">she（主格）→ him（目的格）格変化に注意</div>
+</div><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-m">Who<sup>疑問代名詞</sup></span> <span class="tok tok-v">is<sup>V</sup></span> <span class="tok tok-v">calling<sup>V</sup></span>?</div>
+  <div class="pos-ex-jp">誰が電話してきているの？</div>
+  <div class="pos-ex-note">疑問代名詞はS・O・Cになる</div>
+</div><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-s">It<sup>S(形式主語)</sup></span> <span class="tok tok-v">is<sup>V</sup></span> <span class="tok tok-c">easy<sup>C</sup></span> to learn.</div>
+  <div class="pos-ex-jp">学ぶのは簡単だ。</div>
+  <div class="pos-ex-note">itは形式主語（内容のない代名詞）</div>
+</div></div>
+  <div class="pos-tags"><span class="pos-tag">pron.</span><span class="pos-tag">I/my/me/mine</span><span class="pos-tag">who/whose/whom</span></div>
+  <div class="pos-tip">💡 格変化の4形を一表で覚える：I（主格）→ my（所有格）→ me（目的格）→ mine（所有代名詞）。who（主格）→ whose（所有格）→ whom（目的格）。</div>
+</div>
+<div class="pos-card pc3">
+  <div class="pos-n">#3/8</div>
+  <div class="pos-badge">
+    <span class="pos-ic">🏃</span>
+    <div>
+      <div class="pos-en" style="color:var(--cv)">Verb</div>
+      <div class="pos-ja">動詞 <span class="pos-abbr" style="background:var(--cv)22;color:var(--cv);border:1px solid var(--cv)44">v. / vt. / vi.</span></div>
+    </div>
+  </div>
+  <div class="pos-def">動作・状態・変化を表す語。文の述語(V)になる最重要品詞。時制・人称・数によって語形が変わる（活用する）。</div>
+  <div class="pos-role">役割：文の<strong>述語V</strong>として必ず必要。①自動詞（vi.）=目的語不要 ②他動詞（vt.）=目的語必要 ③連結動詞=補語を取る ④助動詞=動詞を補助する。</div>
+  <div class="pos-exs"><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-s">She<sup>S</sup></span> <span class="tok tok-v">runs<sup>V(自動詞vi.)</sup></span> <span class="tok tok-a">every day<sup>副詞</sup></span>.</div>
+  <div class="pos-ex-jp">彼女は毎日走る。（自動詞：目的語なし）</div>
+  <div class="pos-ex-note">vi. = 自動詞、目的語不要</div>
+</div><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-s">He<sup>S</sup></span> <span class="tok tok-v">made<sup>V(他動詞vt.)</sup></span> <span class="tok tok-o">her<sup>O</sup></span> <span class="tok tok-c">happy<sup>C</sup></span>.</div>
+  <div class="pos-ex-jp">彼は彼女を幸せにした。（他動詞：目的語あり）</div>
+  <div class="pos-ex-note">vt. = 他動詞、目的語必要（第5文型）</div>
+</div><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-s">She<sup>S</sup></span> <span class="tok tok-m">can<sup>助動詞</sup></span> <span class="tok tok-v">speak<sup>V</sup></span> <span class="tok tok-o">Thai<sup>O</sup></span>.</div>
+  <div class="pos-ex-jp">彼女はタイ語が話せる。</div>
+  <div class="pos-ex-note">助動詞+動詞の組み合わせ</div>
+</div></div>
+  <div class="pos-tags"><span class="pos-tag">v.</span><span class="pos-tag">vt.（他動詞）</span><span class="pos-tag">vi.（自動詞）</span><span class="pos-tag">aux.（助動詞）</span></div>
+  <div class="pos-tip">💡 一つの動詞が自他両方の意味を持つものが多い：grow（vi.育つ / vt.育てる）/ read（vi.本を読む / vt.〜を読む）。辞書でvt./vi.を確認する習慣を。</div>
+</div>
+<div class="pos-card pc4">
+  <div class="pos-n">#4/8</div>
+  <div class="pos-badge">
+    <span class="pos-ic">🎨</span>
+    <div>
+      <div class="pos-en" style="color:var(--cadj)">Adjective</div>
+      <div class="pos-ja">形容詞 <span class="pos-abbr" style="background:var(--cadj)22;color:var(--cadj);border:1px solid var(--cadj)44">adj.</span></div>
+    </div>
+  </div>
+  <div class="pos-def">名詞を修飾して、その性質・状態・量・色などを説明する語。「どんな〜か」「どれくらいの〜か」を表す。</div>
+  <div class="pos-role">役割：①<strong>名詞の前で修飾</strong>（限定用法）②<strong>C（補語）として</strong>（叙述用法）。どちらの位置にあるかで役割が変わる。</div>
+  <div class="pos-exs"><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-s">She<sup>S</sup></span> <span class="tok tok-v">is<sup>V</sup></span> <span class="tok tok-c">a <span class="tok tok-adj">smart<sup>adj</sup></span> student<sup>C(名詞)</sup></span>.</div>
+  <div class="pos-ex-jp">彼女は賢い学生だ。（限定用法：名詞の前）</div>
+  <div class="pos-ex-note">adj. が名詞を前から修飾（限定用法）</div>
+</div><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-s">The sky<sup>S</sup></span> <span class="tok tok-v">is<sup>V</sup></span> <span class="tok tok-c"><span class="tok tok-adj">blue<sup>C(adj)</sup></span></span>.</div>
+  <div class="pos-ex-jp">空は青い。（叙述用法：補語の位置）</div>
+  <div class="pos-ex-note">adj. が補語(C)の位置で S=C 成立</div>
+</div><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-s">I<sup>S</sup></span> <span class="tok tok-v">found<sup>V</sup></span> <span class="tok tok-o">the movie<sup>O</sup></span> <span class="tok tok-c"><span class="tok tok-adj">boring<sup>C(adj)</sup></span></span>.</div>
+  <div class="pos-ex-jp">その映画を退屈だと思った。（O=C）</div>
+  <div class="pos-ex-note">adj. が C の位置（第5文型）</div>
+</div></div>
+  <div class="pos-tags"><span class="pos-tag">adj.</span><span class="pos-tag">comparative（比較級）</span><span class="pos-tag">superlative（最上級）</span></div>
+  <div class="pos-tip">💡 形容詞 vs 副詞の混同に注意！「He is a good student.」(good=adj, 名詞修飾) vs 「He studies well.」(well=adv, 動詞修飾)。goodly は形容詞、well は副詞。</div>
+</div>
+<div class="pos-card pc5">
+  <div class="pos-n">#5/8</div>
+  <div class="pos-badge">
+    <span class="pos-ic">⚡</span>
+    <div>
+      <div class="pos-en" style="color:var(--cadv)">Adverb</div>
+      <div class="pos-ja">副詞 <span class="pos-abbr" style="background:var(--cadv)22;color:var(--cadv);border:1px solid var(--cadv)44">adv.</span></div>
+    </div>
+  </div>
+  <div class="pos-def">動詞・形容詞・他の副詞・文全体を修飾する語。「どのように」「どこで」「いつ」「どのくらい」などを表す。</div>
+  <div class="pos-role">役割：<strong>名詞以外のすべてを修飾</strong>できる柔軟な品詞。文型には直接関与せず、情報を追加する役割。</div>
+  <div class="pos-exs"><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-s">She<sup>S</sup></span> <span class="tok tok-v">speaks<sup>V</sup></span> <span class="tok tok-a">very<sup>adv</sup></span> <span class="tok tok-a">quickly<sup>adv</sup></span>.</div>
+  <div class="pos-ex-jp">彼女はとても速く話す。</div>
+  <div class="pos-ex-note">very（副詞を修飾）、quickly（動詞を修飾）</div>
+</div><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-a">Fortunately<sup>adv（文全体修飾）</sup></span>, <span class="tok tok-s">nobody<sup>S</sup></span> <span class="tok tok-v">was hurt<sup>V</sup></span>.</div>
+  <div class="pos-ex-jp">幸いにも、誰も傷つかなかった。</div>
+  <div class="pos-ex-note">文頭副詞は文全体を修飾する（文型に関与しない）</div>
+</div><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-s">He<sup>S</sup></span> <span class="tok tok-v">runs<sup>V</sup></span> <span class="tok tok-a">fast<sup>adv</sup></span>.</div>
+  <div class="pos-ex-jp">彼は速く走る。（→ 第1文型：fastは副詞！）</div>
+  <div class="pos-ex-note">fast は副詞 → 目的語ではない → 第1文型</div>
+</div></div>
+  <div class="pos-tags"><span class="pos-tag">adv.</span><span class="pos-tag">manner</span><span class="pos-tag">frequency</span><span class="pos-tag">degree</span><span class="pos-tag">time</span></div>
+  <div class="pos-tip">💡 多くの副詞は 形容詞+ly（quick→quickly）。例外：good→<strong>well</strong>、fast→fast、hard→hard。⚠️ <strong>hardly</strong>（ほとんど〜ない）は別語！hardとhardlyは全く別の意味。</div>
+</div>
+<div class="pos-card pc6">
+  <div class="pos-n">#6/8</div>
+  <div class="pos-badge">
+    <span class="pos-ic">📍</span>
+    <div>
+      <div class="pos-en" style="color:var(--cprep)">Preposition</div>
+      <div class="pos-ja">前置詞 <span class="pos-abbr" style="background:var(--cprep)22;color:var(--cprep);border:1px solid var(--cprep)44">prep.</span></div>
+    </div>
+  </div>
+  <div class="pos-def">名詞・代名詞の前に置いて、時間・場所・方向・手段・原因などの関係を示す語。名詞とセットで「前置詞句」を作る。</div>
+  <div class="pos-role">役割：名詞の前に来て<strong>前置詞句（副詞句・形容詞句）</strong>を作る。後には必ず名詞（目的格）が来る。前置詞の後は必ず名詞 or V-ing！</div>
+  <div class="pos-exs"><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-s">She<sup>S</sup></span> <span class="tok tok-v">arrived<sup>V</sup></span> <span class="tok tok-p">at<sup>prep</sup></span> <span class="tok tok-n">the airport<sup>名詞</sup></span> <span class="tok tok-p">on<sup>prep</sup></span> <span class="tok tok-n">Monday<sup>名詞</sup></span>.</div>
+  <div class="pos-ex-jp">彼女は月曜日に空港に着いた。</div>
+  <div class="pos-ex-note">prep+名詞 = 副詞句（時間・場所を追加）</div>
+</div><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-s">He<sup>S</sup></span> <span class="tok tok-v">is<sup>V</sup></span> <span class="tok tok-p">from<sup>prep</sup></span> <span class="tok tok-n">Japan<sup>名詞</sup></span>.</div>
+  <div class="pos-ex-jp">彼は日本出身だ。</div>
+  <div class="pos-ex-note">from Japan が副詞句</div>
+</div><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-s">I<sup>S</sup></span> <span class="tok tok-v">look forward to<sup>V+prep</sup></span> <span class="tok tok-o">seeing you<sup>O(V-ing)</sup></span>.</div>
+  <div class="pos-ex-jp">あなたに会うのを楽しみにしています。</div>
+  <div class="pos-ex-note">to は前置詞 → 後は V-ing（to不定詞ではない！）</div>
+</div></div>
+  <div class="pos-tags"><span class="pos-tag">prep.</span><span class="pos-tag">in/on/at（場所）</span><span class="pos-tag">to/from（方向）</span><span class="pos-tag">for/by（理由・手段）</span></div>
+  <div class="pos-tip">💡 時間のat/on/in：at（時刻・特定の点）→ at 9 / on（曜日・日付）→ on Monday / in（月・年・世紀）→ in April, in 2024。look forward <strong>to</strong> の to は前置詞なので後はV-ing！</div>
+</div>
+<div class="pos-card pc7">
+  <div class="pos-n">#7/8</div>
+  <div class="pos-badge">
+    <span class="pos-ic">🔗</span>
+    <div>
+      <div class="pos-en" style="color:var(--cconj)">Conjunction</div>
+      <div class="pos-ja">接続詞 <span class="pos-abbr" style="background:var(--cconj)22;color:var(--cconj);border:1px solid var(--cconj)44">conj.</span></div>
+    </div>
+  </div>
+  <div class="pos-def">語と語・句と句・文と文をつなぐ語。等位接続詞（and, but, or）と従属接続詞（because, if, when）に大別される。</div>
+  <div class="pos-role">役割：①<strong>等位接続詞</strong>：同じ品詞・文をつなぐ ②<strong>従属接続詞</strong>：主節と従属節をつなぐ。文型の「骨格」を増やすつなぎ目。</div>
+  <div class="pos-exs"><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-s">I<sup>S</sup></span> <span class="tok tok-v">was tired<sup>V</sup></span>, <span class="tok tok-j">but<sup>等位接続詞</sup></span> <span class="tok tok-s">I<sup>S</sup></span> <span class="tok tok-v">kept going<sup>V</sup></span>.</div>
+  <div class="pos-ex-jp">疲れていたが、続けた。</div>
+  <div class="pos-ex-note">but が同等の2文をつなぐ（等位接続）</div>
+</div><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-j">Because<sup>従属接続詞</sup></span> <span class="tok tok-s">it<sup>S</sup></span> <span class="tok tok-v">rained<sup>V</sup></span>, <span class="tok tok-s">I<sup>S</sup></span> <span class="tok tok-v">stayed<sup>V</sup></span> <span class="tok tok-a">home<sup>副詞</sup></span>.</div>
+  <div class="pos-ex-jp">雨が降ったから家にいた。</div>
+  <div class="pos-ex-note">because節（従属節）+ 主節の構造</div>
+</div><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-j">If<sup>従属接続詞</sup></span> <span class="tok tok-s">it<sup>S</sup></span> <span class="tok tok-v">rains<sup>V（現在形）</sup></span>, <span class="tok tok-s">we<sup>S</sup></span> <span class="tok tok-m">will<sup>助動詞</sup></span> <span class="tok tok-v">cancel<sup>V</sup></span>.</div>
+  <div class="pos-ex-jp">雨なら中止します。</div>
+  <div class="pos-ex-note">⚠️ if節内は未来でも現在形！willを使わない</div>
+</div></div>
+  <div class="pos-tags"><span class="pos-tag">conj.</span><span class="pos-tag">FANBOYS（等位）</span><span class="pos-tag">because/if/when（従属）</span></div>
+  <div class="pos-tip">💡 FANBOYS（等位接続詞7つ）：<strong>F</strong>or, <strong>A</strong>nd, <strong>N</strong>or, <strong>B</strong>ut, <strong>O</strong>r, <strong>Y</strong>et, <strong>S</strong>o。従属接続詞のif/when節内：未来のことでも現在形を使う！</div>
+</div>
+<div class="pos-card pc8">
+  <div class="pos-n">#8/8</div>
+  <div class="pos-badge">
+    <span class="pos-ic">😲</span>
+    <div>
+      <div class="pos-en" style="color:var(--cc)">Interjection</div>
+      <div class="pos-ja">間投詞 <span class="pos-abbr" style="background:var(--cc)22;color:var(--cc);border:1px solid var(--cc)44">interj.</span></div>
+    </div>
+  </div>
+  <div class="pos-def">感情・驚き・呼びかけ・反応などを表す語。文法的に他の語と独立していることが多く、感嘆符(!)が使われる。</div>
+  <div class="pos-role">役割：<strong>文法構造から独立</strong>した要素。S/V/O/Cのどれにも属さない。感情・反応・呼びかけを即座に表現する口語的な品詞。</div>
+  <div class="pos-exs"><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-c">Wow<sup>interj!</sup></span> <span class="tok tok-s">That<sup>S</sup></span>'s <span class="tok tok-c">amazing<sup>C</sup></span>!</div>
+  <div class="pos-ex-jp">わあ！それはすごい！</div>
+  <div class="pos-ex-note">Wow は文法構造から独立（interj.）</div>
+</div><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-c">Oops<sup>interj!</sup></span>, <span class="tok tok-s">I<sup>S</sup></span> <span class="tok tok-v">dropped<sup>V</sup></span> <span class="tok tok-o">it<sup>O</sup></span>.</div>
+  <div class="pos-ex-jp">おっと、落としてしまった。</div>
+  <div class="pos-ex-note">Oops は感情表現で文法的に独立</div>
+</div><div class="pos-ex-box">
+  <div class="pos-ex-en"><span class="tok tok-c">Oh no<sup>interj!</sup></span>! <span class="tok tok-s">I<sup>S</sup></span> <span class="tok tok-v">forgot<sup>V</sup></span> <span class="tok tok-o">my keys<sup>O</sup></span>.</div>
+  <div class="pos-ex-jp">あ、しまった！鍵を忘れた。</div>
+  <div class="pos-ex-note">タイ語：โอ้โห！/ อุ๊บส์ / โอ้ย が対応</div>
+</div></div>
+  <div class="pos-tags"><span class="pos-tag">interj.</span><span class="pos-tag">!感嘆符</span><span class="pos-tag">口語的表現</span></div>
+  <div class="pos-tip">💡 会話・文学でよく使われるが正式な書き言葉では多用しない。タイ語では「โอ้โห！」（おー！すごい）、「อุ๊บส์」（おっと）、「โอ้ย」（痛い・困った）などが対応する。</div>
+</div></div>
+</div>
+
+<div class="tab-sec" id="tips">
+  <div class="sh">
+    <div class="sh-title">文法学習のコツ</div>
+    <div class="sh-sub">英語・タイ語の文法特徴と効率的な学習戦略。よくある間違いと正解パターンを確認しましょう。</div>
+  </div>
+  <div class="tips-grid"><div class="tip-card">
+  <h3>📐 5文型マスターの近道</h3>
+  <ul><li><strong>動詞が文型を決める</strong>。まず動詞が自動詞(vi.)か他動詞(vt.)かを確認する。</li><li>SVOかSVCかを判断するとき：<strong>S=Cが成立 → 第2文型</strong>、成立しない → 第3文型。</li><li>第4文型の判別：O₁（人）O₂（物）の2つの目的語がある → 第4文型。書き換え：give A to B / buy B for A。</li><li>第5文型の判別：<strong>O=Cが成立する</strong> → 第5文型（They call him Bob → him = Bob）。</li><li>チェックフロー：目的語なし→第1/2文型 → S=C成立→第2 / O₁O₂あり→第4 / O=C成立→第5 / それ以外→第3。</li></ul>
+</div>
+<div class="tip-card">
+  <h3>🔄 to V vs V-ing の決め方</h3>
+  <ul><li><strong>to V（未来志向）</strong>：want / decide / plan / hope / refuse / promise + to V</li><li><strong>V-ing（過去・習慣・一般）</strong>：enjoy / finish / stop / avoid / mind / consider + V-ing</li><li><strong>どちらも可（意味ほぼ同じ）</strong>：start / begin / like / love / hate + to V または V-ing</li><li><strong>どちらも可（意味が大きく変わる！）</strong>：<code>stop to V</code>（するために止まる）vs <code>stop V-ing</code>（やめる）</li><li>覚え方：<strong>前置詞の後は必ずV-ing</strong>（be good at <u>running</u> / look forward to <u>seeing</u>）</li></ul>
+</div>
+<div class="tip-card">
+  <h3>⏰ 時制の使い分け早見表</h3>
+  <ul><li><strong>過去形</strong>：過去の特定の時点（yesterday / last year / in 2020）</li><li><strong>現在完了（have/has p.p.）</strong>：過去〜現在のつながり（just / already / yet / ever / for / since）</li><li><strong>過去完了（had p.p.）</strong>：過去の2つの出来事で「さらに前の方の出来事」</li><li><strong>未来（will / be going to）</strong>：will=その場の決定・予測 / be going to=既定の計画・根拠ある予測</li><li>⚠️ <strong>時・条件節（when/if）内は、未来のことでも現在形を使う</strong>（When he <u>comes</u>… / If it <u>rains</u>…）</li></ul>
+</div>
+<div class="tip-card">
+  <h3>🇹🇭 英語とタイ語の構造比較</h3>
+  <ul><li><strong>語順の共通点</strong>：両言語ともに基本はSVO語順。タイ語は英語の第3文型に最も近い。</li><li><strong>時制の違い</strong>：英語は動詞が活用変化（go→went）。タイ語は動詞形が変わらず助詞・副詞で時制表現（「แล้ว」=already / 「จะ」=will）。</li><li><strong>比較表現</strong>：比較級（taller than）= タイ語「กว่า」 / 最上級 = 「ที่สุด」</li><li><strong>受動態</strong>：英語はbe + p.p. / タイ語は「ถูก」（ネガティブ）または「ได้รับ」（ニュートラル）</li><li><strong>助動詞対応</strong>：can = สามารถ / will = จะ / should = ควร / must = ต้อง</li></ul>
+</div>
+<div class="tip-card">
+  <h3>🎯 初心者がまず覚えるべき構文TOP10</h3>
+  <ul><li><strong>1位</strong>：<code>be going to V</code> — 日常会話で最頻出の未来表現</li><li><strong>2位</strong>：<code>can / cannot + V</code> — 能力・許可の基本助動詞</li><li><strong>3位</strong>：<code>would like to V</code> — 丁寧な希望・注文に必須</li><li><strong>4位</strong>：<code>have/has + p.p.</code> — 経験・完了を表す現在完了</li><li><strong>5位</strong>：<code>be + p.p.</code> — 受動態の基本形（〜される）</li><li><strong>6位</strong>：<code>so that S can V</code> — 目的を表す最頻出構文</li><li><strong>7位</strong>：<code>not only A but also B</code> — AだけでなくBも</li><li><strong>8位</strong>：<code>as soon as S V</code> — 〜するとすぐに</li><li><strong>9位</strong>：<code>If I were you</code> — 仮定法の代表表現</li><li><strong>10位</strong>：<code>It is said that</code> — 〜と言われている（伝聞）</li></ul>
+</div>
+<div class="tip-card">
+  <h3>❌ 日本人がよくやる文法ミスTOP8</h3>
+  <ul><li><strong>if節でwillを使う</strong> → If it <del>will rain</del> → If it <u>rains</u>（現在形が正しい）</li><li><strong>look forward to + 動詞原形</strong> → look forward to <del>see</del> → <u>seeing</u>（toは前置詞！）</li><li><strong>despite of〜</strong> → <del>despite of</del> → <u>despite〜</u>（ofは不要）</li><li><strong>stop V-ingとstop to Vの混同</strong> → 意味が全く異なる要注意ペア</li><li><strong>make him to go</strong> → make him <del>to go</del> → <u>go</u>（使役動詞の後はto不要）</li><li><strong>現在完了 + yesterday</strong> → <del>I have seen him yesterday</del> → <u>I saw him yesterday</u></li><li><strong>enoughの語順</strong> → <del>enough old</del> → <u>old enough</u>（形容詞の後にenough）</li><li><strong>比較級にtheは不要</strong> → <del>She is the taller than me</del> → <u>She is taller than me</u></li></ul>
+</div></div>
+</div>
+
+</div>
+<script>
+function showTab(id,btn){
+  document.querySelectorAll('.tab-sec').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.tabBtn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+}
+</script>
+</body></html>

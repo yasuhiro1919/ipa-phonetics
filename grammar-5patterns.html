@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>英語の5文型（S/V/O/C カラー解析）| 文法構造ガイド</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Noto+Sans+Thai:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#06080e;--bg2:#090c14;--surf:#0d1220;--surf2:#111828;--bdr:#1a2840;--bdr2:#243550;--text:#dce8f8;--dim:#6888aa;--muted:#2d4460;--en:#4a9eff;--en-bg:rgba(74,158,255,.1);--en-bdr:rgba(74,158,255,.2);--th:#ff7c44;--th-bg:rgba(255,124,68,.1);--th-bdr:rgba(255,124,68,.2);--ja:#3ecf8e;--ja-bg:rgba(62,207,142,.1);--ja-bdr:rgba(62,207,142,.2);--gold:#f0bc30;--gold-bg:rgba(240,188,48,.1);--gold-bdr:rgba(240,188,48,.25);--violet:#a78bfa;--tip:#f59e0b;--tip-bg:rgba(245,158,11,.08);--warn-bg:rgba(239,68,68,.08);--r:10px;--r2:7px;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Zen Kaku Gothic New','Noto Sans Thai',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:15px;line-height:1.65;}
+.top-nav{background:var(--surf);border-bottom:1px solid var(--bdr);padding:0 18px;position:sticky;top:0;z-index:300;backdrop-filter:blur(14px);}
+.top-nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:6px;overflow-x:auto;padding:10px 0;}
+.top-nav-inner::-webkit-scrollbar{display:none;}
+.tnbtn{padding:8px 16px;border:1px solid var(--bdr);background:transparent;color:var(--dim);border-radius:100px;font-size:.78rem;font-weight:600;white-space:nowrap;text-decoration:none;transition:all .18s;}
+.tnbtn:hover{color:var(--text);border-color:var(--bdr2);}
+.tnbtn.cur{background:var(--gold);border-color:var(--gold);color:#06080e;}
+.page-hero{background:linear-gradient(155deg,#07101e 0%,#0d1c30 45%,#091420 100%);border-bottom:1px solid var(--bdr);padding:40px 24px 32px;text-align:center;position:relative;overflow:hidden;}
+.page-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--gold-bg);border:1px solid var(--gold-bdr);color:var(--gold);font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 16px;border-radius:100px;margin-bottom:16px;}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,4vw,2.5rem);font-style:italic;background:linear-gradient(140deg,#dce8f8 30%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;}
+.page-hero p{color:var(--dim);font-size:.86rem;max-width:540px;margin:0 auto;}
+.ctn{max-width:1200px;margin:0 auto;padding:28px 18px 72px;}
+.sh{margin-bottom:24px;}.sh-title{font-size:1.4rem;font-weight:700;margin-bottom:5px;}.sh-sub{color:var(--dim);font-size:.85rem;}
+.intro-banner{background:linear-gradient(135deg,var(--en-bg),var(--surf2));border:1px solid var(--en-bdr);border-radius:var(--r);padding:18px 22px;margin-bottom:24px;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;}
+.intro-icon{font-size:1.6rem;}
+.intro-banner h3{font-size:.92rem;font-weight:700;color:var(--en);margin-bottom:6px;}
+.intro-banner p{font-size:.82rem;color:var(--dim);line-height:1.65;margin-bottom:5px;}
+.intro-banner p:last-child{margin:0;}
+.hl-en{color:var(--en);font-weight:700;}.hl-th{color:var(--th);font-weight:700;}.hl-g{color:var(--gold);font-weight:700;}
+del{text-decoration:line-through;color:#ef4444;opacity:.7;}u{text-decoration:underline;color:var(--ja);}
+@media(max-width:768px){.ctn{padding:18px 12px 60px;}}
+</style>
+
+<style>
+/* ─── S/V/O/C Color tokens ─── */
+:root{
+  --cs:#4a9eff; --cs-bg:rgba(74,158,255,.13); --cs-bdr:rgba(74,158,255,.4);
+  --cv:#ff7c44; --cv-bg:rgba(255,124,68,.13); --cv-bdr:rgba(255,124,68,.4);
+  --co:#3ecf8e; --co-bg:rgba(62,207,142,.13); --co-bdr:rgba(62,207,142,.4);
+  --cc:#f0bc30; --cc-bg:rgba(240,188,48,.13); --cc-bdr:rgba(240,188,48,.4);
+  --cmod:#c084fc; --cmod-bg:rgba(192,132,252,.12); --cmod-bdr:rgba(192,132,252,.35);
+  --cadv:#22d3ee; --cadv-bg:rgba(34,211,238,.1); --cadv-bdr:rgba(34,211,238,.3);
+}
+
+/* Legend bar */
+.legend{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;padding:14px 16px;background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);}
+.litem{display:flex;align-items:center;gap:6px;font-size:.78rem;font-weight:700;}
+.ldot{width:28px;height:22px;border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;font-family:'JetBrains Mono',monospace;}
+.ld-s{background:var(--cs-bg);border:1px solid var(--cs-bdr);color:var(--cs);}
+.ld-v{background:var(--cv-bg);border:1px solid var(--cv-bdr);color:var(--cv);}
+.ld-o{background:var(--co-bg);border:1px solid var(--co-bdr);color:var(--co);}
+.ld-c{background:var(--cc-bg);border:1px solid var(--cc-bdr);color:var(--cc);}
+.ld-m{background:var(--cmod-bg);border:1px solid var(--cmod-bdr);color:var(--cmod);}
+.ld-a{background:var(--cadv-bg);border:1px solid var(--cadv-bdr);color:var(--cadv);}
+.lname{color:var(--dim);}
+
+/* Inline token spans */
+.tok{display:inline;border-radius:4px;padding:1px 5px;font-weight:600;line-height:1.8;position:relative;cursor:default;}
+.tok-s{background:var(--cs-bg);border:1px solid var(--cs-bdr);color:var(--cs);}
+.tok-v{background:var(--cv-bg);border:1px solid var(--cv-bdr);color:var(--cv);}
+.tok-o{background:var(--co-bg);border:1px solid var(--co-bdr);color:var(--co);}
+.tok-c{background:var(--cc-bg);border:1px solid var(--cc-bdr);color:var(--cc);}
+.tok-m{background:var(--cmod-bg);border:1px solid var(--cmod-bdr);color:var(--cmod);}
+.tok-a{background:var(--cadv-bg);border:1px solid var(--cadv-bdr);color:var(--cadv);}
+.tok sup{font-size:.55em;font-weight:800;opacity:.75;margin-left:1px;}
+
+/* 5-pattern card grid */
+.sp5-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;}
+.sp5-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);padding:22px;transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden;}
+.sp5-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;}
+.sc1::before{background:linear-gradient(90deg,var(--cs),#60b4ff);}
+.sc2::before{background:linear-gradient(90deg,var(--cc),#ffd666);}
+.sc3::before{background:linear-gradient(90deg,var(--cv),#ff9966);}
+.sc4::before{background:linear-gradient(90deg,var(--co),#66e0ab);}
+.sc5::before{background:linear-gradient(90deg,var(--cmod),#d4a8ff);}
+.sp5-card:hover{transform:translateY(-3px);box-shadow:0 14px 44px rgba(0,0,0,.5);}
+
+.sp5-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.sp5-num{font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:800;padding:4px 12px;border-radius:100px;white-space:nowrap;}
+.sp5-formula{font-family:'JetBrains Mono',monospace;font-size:1rem;font-weight:700;}
+
+.sp5-desc{font-size:.83rem;color:var(--dim);margin-bottom:12px;line-height:1.65;}
+.sp5-rule{background:var(--surf2);border-radius:var(--r2);padding:10px 13px;margin-bottom:14px;font-size:.81rem;color:var(--dim);border-left:3px solid var(--gold);}
+.sp5-rule strong{color:var(--gold);}
+
+/* Sentence display */
+.sent-list{display:flex;flex-direction:column;gap:10px;margin-bottom:14px;}
+.sent-box{background:var(--bg2);border:1px solid var(--bdr);border-radius:var(--r2);padding:12px 14px;}
+.sent-en{font-size:.95rem;line-height:1.9;margin-bottom:6px;}
+.sent-jp{font-size:.78rem;color:var(--dim);margin-bottom:8px;}
+.sent-tags{display:flex;gap:5px;flex-wrap:wrap;}
+.stag{font-size:.67rem;font-weight:700;padding:2px 7px;border-radius:100px;}
+.stag-s{background:var(--cs-bg);border:1px solid var(--cs-bdr);color:var(--cs);}
+.stag-v{background:var(--cv-bg);border:1px solid var(--cv-bdr);color:var(--cv);}
+.stag-o{background:var(--co-bg);border:1px solid var(--co-bdr);color:var(--co);}
+.stag-c{background:var(--cc-bg);border:1px solid var(--cc-bdr);color:var(--cc);}
+.stag-a{background:var(--cadv-bg);border:1px solid var(--cadv-bdr);color:var(--cadv);}
+
+.verb-row{display:flex;gap:5px;flex-wrap:wrap;margin-top:10px;}
+.vc{font-family:'JetBrains Mono',monospace;background:var(--surf2);border:1px solid var(--bdr2);color:var(--dim);font-size:.7rem;padding:2px 8px;border-radius:4px;}
+.tip-blk{margin-top:10px;background:var(--tip-bg);border-left:3px solid var(--tip);padding:9px 12px;font-size:.8rem;color:var(--dim);border-radius:0 var(--r2) var(--r2) 0;line-height:1.6;}
+
+/* Interactive Analyzer */
+.analyzer{background:var(--surf);border:1px solid var(--bdr2);border-radius:var(--r);padding:22px;margin-bottom:28px;}
+.analyzer h3{font-size:1rem;font-weight:700;margin-bottom:14px;color:var(--gold);}
+.ana-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;}
+.ana-inp{flex:1;min-width:220px;padding:10px 14px;background:var(--surf2);border:1px solid var(--bdr);border-radius:100px;color:var(--text);font-family:inherit;font-size:.88rem;outline:none;transition:border-color .2s;}
+.ana-inp:focus{border-color:var(--gold);}
+.ana-inp::placeholder{color:var(--muted);}
+.ana-btn{padding:10px 22px;background:var(--gold);border:none;border-radius:100px;color:#06080e;font-family:inherit;font-size:.85rem;font-weight:700;cursor:pointer;transition:opacity .18s;white-space:nowrap;}
+.ana-btn:hover{opacity:.88;}
+.preset-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;}
+.preset-btn{padding:5px 12px;background:transparent;border:1px solid var(--bdr);border-radius:100px;color:var(--dim);font-family:inherit;font-size:.75rem;cursor:pointer;transition:all .18s;}
+.preset-btn:hover{border-color:var(--gold);color:var(--gold);}
+.ana-out{min-height:48px;font-size:1.1rem;line-height:2;padding:14px 16px;background:var(--surf2);border:1px solid var(--bdr);border-radius:var(--r2);}
+.ana-note{margin-top:10px;font-size:.78rem;color:var(--muted);}
+
+@media(max-width:640px){.sp5-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="top-nav"><div class="top-nav-inner"><a class="tnbtn" href="index.html">🏠 TOP</a><a class="tnbtn cur" href="grammar-5patterns.html">📐 5文型</a><a class="tnbtn" href="grammar-constructs-A.html">📝 構文 #1-35</a><a class="tnbtn" href="grammar-constructs-B.html">📝 構文 #36-70</a><a class="tnbtn" href="grammar-pos-tips.html">🏷 品詞・tips</a><a class="tnbtn" href="ipa-phonetics.html">🎙 発音記号</a><a class="tnbtn" href="thai2000.html">🇹🇭 タイ語2000語</a></div></div>
+<div class="page-hero">
+  <div class="hero-badge">COLOR-CODED SENTENCE PATTERNS</div>
+  <h1>英語の5文型</h1>
+  <p>S・V・O・C を色で見分けて語順と文の骨格を視覚的に理解しましょう。</p>
+</div>
+<div class="ctn">
+
+<!-- Legend -->
+<div class="legend">
+  <span class="litem"><span class="ldot ld-s">S</span><span class="lname">主語 Subject</span></span>
+  <span class="litem"><span class="ldot ld-v">V</span><span class="lname">動詞 Verb</span></span>
+  <span class="litem"><span class="ldot ld-o">O</span><span class="lname">目的語 Object</span></span>
+  <span class="litem"><span class="ldot ld-c">C</span><span class="lname">補語 Complement</span></span>
+  <span class="litem"><span class="ldot ld-m">M</span><span class="lname">助動詞 Modal</span></span>
+  <span class="litem"><span class="ldot ld-a">副</span><span class="lname">副詞句 Adverbial</span></span>
+</div>
+
+<!-- Terms -->
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:24px;">
+  <div style="background:var(--surf);border:1px solid var(--cs-bdr);border-radius:var(--r2);padding:14px;">
+    <div class="tok tok-s" style="font-size:1.2rem;font-weight:800;margin-bottom:5px">S</div>
+    <div style="font-size:.85rem;font-weight:700;margin-bottom:3px">Subject（主語）</div>
+    <div style="font-size:.75rem;color:var(--dim)">名詞・代名詞・名詞節。文の動作主。「〜は/が」に相当。</div>
+  </div>
+  <div style="background:var(--surf);border:1px solid var(--cv-bdr);border-radius:var(--r2);padding:14px;">
+    <div class="tok tok-v" style="font-size:1.2rem;font-weight:800;margin-bottom:5px">V</div>
+    <div style="font-size:.85rem;font-weight:700;margin-bottom:3px">Verb（動詞）</div>
+    <div style="font-size:.75rem;color:var(--dim)">動作や状態を表す。自動詞・他動詞・助動詞に分類される。</div>
+  </div>
+  <div style="background:var(--surf);border:1px solid var(--co-bdr);border-radius:var(--r2);padding:14px;">
+    <div class="tok tok-o" style="font-size:1.2rem;font-weight:800;margin-bottom:5px">O</div>
+    <div style="font-size:.85rem;font-weight:700;margin-bottom:3px">Object（目的語）</div>
+    <div style="font-size:.75rem;color:var(--dim)">動作の対象。「〜を/に」に相当。S≠Oの関係。</div>
+  </div>
+  <div style="background:var(--surf);border:1px solid var(--cc-bdr);border-radius:var(--r2);padding:14px;">
+    <div class="tok tok-c" style="font-size:1.2rem;font-weight:800;margin-bottom:5px">C</div>
+    <div style="font-size:.85rem;font-weight:700;margin-bottom:3px">Complement（補語）</div>
+    <div style="font-size:.75rem;color:var(--dim)">S=C または O=C の関係が成立。状態・性質を補足説明。</div>
+  </div>
+</div>
+
+<!-- Interactive Analyzer -->
+<div class="analyzer">
+  <h3>🔬 文型インタラクティブ解析ツール</h3>
+  <p style="font-size:.82rem;color:var(--dim);margin-bottom:12px;">英語の文を入力して文型を分析します。よく使う構文のプリセットもあります。</p>
+  <div class="preset-row"><button class="preset-btn" onclick="loadPreset(`She is a doctor.`)">She is a doctor.</button><button class="preset-btn" onclick="loadPreset(`They made him happy.`)">They made him happy.</button><button class="preset-btn" onclick="loadPreset(`I gave her a gift.`)">I gave her a gift.</button><button class="preset-btn" onclick="loadPreset(`He runs fast.`)">He runs fast.</button><button class="preset-btn" onclick="loadPreset(`We found the exam difficult.`)">We found the exam difficult.</button><button class="preset-btn" onclick="loadPreset(`She taught us English.`)">She taught us English.</button><button class="preset-btn" onclick="loadPreset(`The dog looks friendly.`)">The dog looks friendly.</button><button class="preset-btn" onclick="loadPreset(`I like reading books.`)">I like reading books.</button></div>
+  <div class="ana-row">
+    <input class="ana-inp" id="ana-inp" placeholder="英語の文を入力してください..." value="She is a teacher.">
+    <button class="ana-btn" onclick="analyze()">🔍 解析する</button>
+  </div>
+  <div class="ana-out" id="ana-out"></div>
+  <div class="ana-note" id="ana-note"></div>
+</div>
+
+<!-- 5 Pattern Cards -->
+<div class="sh"><div class="sh-title">5文型 — S/V/O/C カラー解説</div><div class="sh-sub">各例文の S・V・O・C がカラーラベルで示されています。色とラベルで語順のパターンを視覚的に掴みましょう。</div></div>
+<div class="sp5-grid">
+<div class="sp5-card sc1">
+  <div class="sp5-head">
+    <span class="sp5-num" style="background:var(--cs)22;color:var(--cs);border:1px solid var(--cs)44">第1文型</span>
+    <div class="sp5-formula"><span class="tok tok-s" style="font-size:.9rem;padding:3px 10px">S</span> <span style="color:var(--muted);font-size:.9rem">+</span> <span class="tok tok-v" style="font-size:.9rem;padding:3px 10px">V</span></div>
+  </div>
+  <div class="sp5-desc">主語が動作をする。<strong style="color:var(--cv)">自動詞のみ</strong>使うシンプルな文型。目的語も補語も不要。自動詞は「目的語なしで意味が完結する動詞」。</div>
+  <div class="sp5-rule"><strong>📌 ポイント：</strong><strong>V = 自動詞</strong>。後に名詞（目的語）がなくても文が完結する。副詞句（場所・時間など）は追加できる。タイ語も第1文型に相当する構造がある。</div>
+  <div class="sent-list"><div class="sent-box">
+  <div class="sent-en"><span class="tok tok-s">He<sup>S</sup></span> <span class="tok tok-v">runs<sup>V</sup></span> <span class="tok tok-a">every morning<sup>副詞句</sup></span>.</div>
+  <div class="sent-jp">彼は毎朝走る。</div>
+  <div class="sent-tags"><span class="stag stag-s">S: He（主語）</span><span class="stag stag-v">V: runs（自動詞）</span><span class="stag stag-a">副詞句: every morning</span></div>
+</div><div class="sent-box">
+  <div class="sent-en"><span class="tok tok-s">The sun<sup>S</sup></span> <span class="tok tok-v">rises<sup>V</sup></span> <span class="tok tok-a">in the east<sup>副詞句</sup></span>.</div>
+  <div class="sent-jp">太陽は東から昇る。</div>
+  <div class="sent-tags"><span class="stag stag-s">S: The sun</span><span class="stag stag-v">V: rises（自動詞）</span><span class="stag stag-a">副詞句: in the east</span></div>
+</div><div class="sent-box">
+  <div class="sent-en"><span class="tok tok-s">She<sup>S</sup></span> <span class="tok tok-v">lives<sup>V</sup></span> <span class="tok tok-a">in Bangkok<sup>副詞句</sup></span>.</div>
+  <div class="sent-jp">彼女はバンコクに住む。</div>
+  <div class="sent-tags"><span class="stag stag-s">S: She</span><span class="stag stag-v">V: lives（自動詞）</span><span class="stag stag-a">副詞句: in Bangkok</span></div>
+</div></div>
+  <div class="verb-row"><span class="vc">run</span><span class="vc">go</span><span class="vc">live</span><span class="vc">sleep</span><span class="vc">arrive</span><span class="vc">exist</span><span class="vc">stand</span><span class="vc">come</span><span class="vc">happen</span><span class="vc">fall</span></div>
+  <div class="tip-blk">💡 「He runs fast.」のfastは副詞なので目的語ではない → 第1文型。動詞の後に来る名詞がO（目的語）か副詞句かを見極めるのが文型判断の鍵。</div>
+</div>
+<div class="sp5-card sc2">
+  <div class="sp5-head">
+    <span class="sp5-num" style="background:var(--cc)22;color:var(--cc);border:1px solid var(--cc)44">第2文型</span>
+    <div class="sp5-formula"><span class="tok tok-s" style="font-size:.9rem;padding:3px 10px">S</span> <span style="color:var(--muted);font-size:.9rem">+</span> <span class="tok tok-v" style="font-size:.9rem;padding:3px 10px">V</span> <span style="color:var(--muted);font-size:.9rem">+</span> <span class="tok tok-c" style="font-size:.9rem;padding:3px 10px">C</span></div>
+  </div>
+  <div class="sp5-desc">補語(C)が主語(S)の状態・性質を説明する。<strong style="color:var(--cc)">S = C の関係が必ず成立する</strong>のが第2文型の特徴。</div>
+  <div class="sp5-rule"><strong>📌 ポイント：</strong><strong>V = 連結動詞（リンキングバーブ）</strong>。be動詞・become・seem・look・feel・smell・taste・sound など。CはSを「=」で結ぶ。目的語は置けない。</div>
+  <div class="sent-list"><div class="sent-box">
+  <div class="sent-en"><span class="tok tok-s">She<sup>S</sup></span> <span class="tok tok-v">is<sup>V</sup></span> <span class="tok tok-c">a teacher<sup>C</sup></span>.</div>
+  <div class="sent-jp">彼女は先生だ。（S=C: She = a teacher ✓）</div>
+  <div class="sent-tags"><span class="stag stag-s">S: She</span><span class="stag stag-v">V: is（連結動詞）</span><span class="stag stag-c">C: a teacher → S=C 成立</span></div>
+</div><div class="sent-box">
+  <div class="sent-en"><span class="tok tok-s">He<sup>S</sup></span> <span class="tok tok-v">looks<sup>V</sup></span> <span class="tok tok-c">tired<sup>C</sup></span>.</div>
+  <div class="sent-jp">彼は疲れて見える。（S=C: He = tired ✓）</div>
+  <div class="sent-tags"><span class="stag stag-s">S: He</span><span class="stag stag-v">V: looks（連結動詞）</span><span class="stag stag-c">C: tired（形容詞）→ S=C 成立</span></div>
+</div><div class="sent-box">
+  <div class="sent-en"><span class="tok tok-s">The soup<sup>S</sup></span> <span class="tok tok-v">smells<sup>V</sup></span> <span class="tok tok-c">delicious<sup>C</sup></span>.</div>
+  <div class="sent-jp">スープはおいしい香りがする。</div>
+  <div class="sent-tags"><span class="stag stag-s">S: The soup</span><span class="stag stag-v">V: smells（連結動詞）</span><span class="stag stag-c">C: delicious → S=C 成立</span></div>
+</div></div>
+  <div class="verb-row"><span class="vc">be</span><span class="vc">become</span><span class="vc">seem</span><span class="vc">look</span><span class="vc">feel</span><span class="vc">smell</span><span class="vc">taste</span><span class="vc">sound</span><span class="vc">appear</span><span class="vc">stay</span><span class="vc">remain</span><span class="vc">turn</span></div>
+  <div class="tip-blk">💡 チェック方法：S=Cが成立すれば第2文型。「He is a teacher.」→ He = a teacher ✓ 第2文型。「He hit a teacher.」→ He ≠ a teacher ✗ 第3文型。</div>
+</div>
+<div class="sp5-card sc3">
+  <div class="sp5-head">
+    <span class="sp5-num" style="background:var(--cv)22;color:var(--cv);border:1px solid var(--cv)44">第3文型</span>
+    <div class="sp5-formula"><span class="tok tok-s" style="font-size:.9rem;padding:3px 10px">S</span> <span style="color:var(--muted);font-size:.9rem">+</span> <span class="tok tok-v" style="font-size:.9rem;padding:3px 10px">V</span> <span style="color:var(--muted);font-size:.9rem">+</span> <span class="tok tok-o" style="font-size:.9rem;padding:3px 10px">O</span></div>
+  </div>
+  <div class="sp5-desc">動詞が目的語に動作を及ぼす文型。最も一般的で頻出。<strong style="color:var(--co)">他動詞</strong>を使う。タイ語の基本語順と最も近い構造。</div>
+  <div class="sp5-rule"><strong>📌 ポイント：</strong><strong>V = 他動詞</strong>。O には名詞・代名詞・名詞節（that節・to不定詞など）が来る。S ≠ O の関係。受動態（be + p.p.）への変換が可能。</div>
+  <div class="sent-list"><div class="sent-box">
+  <div class="sent-en"><span class="tok tok-s">I<sup>S</sup></span> <span class="tok tok-v">like<sup>V</sup></span> <span class="tok tok-o">apples<sup>O</sup></span>.</div>
+  <div class="sent-jp">私はリンゴが好きだ。</div>
+  <div class="sent-tags"><span class="stag stag-s">S: I</span><span class="stag stag-v">V: like（他動詞）</span><span class="stag stag-o">O: apples（目的語）</span></div>
+</div><div class="sent-box">
+  <div class="sent-en"><span class="tok tok-s">She<sup>S</sup></span> <span class="tok tok-v">knows<sup>V</sup></span> <span class="tok tok-o">the answer<sup>O</sup></span>.</div>
+  <div class="sent-jp">彼女は答えを知っている。</div>
+  <div class="sent-tags"><span class="stag stag-s">S: She</span><span class="stag stag-v">V: knows（他動詞）</span><span class="stag stag-o">O: the answer</span></div>
+</div><div class="sent-box">
+  <div class="sent-en"><span class="tok tok-s">They<sup>S</sup></span> <span class="tok tok-v">built<sup>V</sup></span> <span class="tok tok-o">a new house<sup>O</sup></span>.</div>
+  <div class="sent-jp">彼らは新しい家を建てた。</div>
+  <div class="sent-tags"><span class="stag stag-s">S: They</span><span class="stag stag-v">V: built（他動詞・過去形）</span><span class="stag stag-o">O: a new house</span></div>
+</div></div>
+  <div class="verb-row"><span class="vc">like</span><span class="vc">know</span><span class="vc">have</span><span class="vc">make</span><span class="vc">use</span><span class="vc">want</span><span class="vc">need</span><span class="vc">see</span><span class="vc">take</span><span class="vc">give</span></div>
+  <div class="tip-blk">💡 受動態への変換練習：「I like apples.」→「Apples are liked by me.」OがSの位置に移動する。第3文型は受動態にしやすい文型。</div>
+</div>
+<div class="sp5-card sc4">
+  <div class="sp5-head">
+    <span class="sp5-num" style="background:var(--co)22;color:var(--co);border:1px solid var(--co)44">第4文型</span>
+    <div class="sp5-formula"><span class="tok tok-s" style="font-size:.9rem;padding:3px 10px">S</span> <span style="color:var(--muted);font-size:.9rem">+</span> <span class="tok tok-v" style="font-size:.9rem;padding:3px 10px">V</span> <span style="color:var(--muted);font-size:.9rem">+</span> <span class="tok tok-o" style="font-size:.9rem;padding:3px 10px">O₁</span> <span style="color:var(--muted);font-size:.9rem">+</span> <span class="tok tok-o" style="font-size:.9rem;padding:3px 10px">O₂</span></div>
+  </div>
+  <div class="sp5-desc">2つの目的語を持つ文型。<strong style="color:var(--co)">O₁（人）にO₂（物）を〜する</strong>という「授与」の意味が基本。</div>
+  <div class="sp5-rule"><strong>📌 ポイント：</strong>O₁=間接目的語（人）、O₂=直接目的語（物）。第3文型への書き換え：give→to / buy→for。<br>第4文型：He gave <span class="tok tok-o">me<sup>O₁人</sup></span> <span class="tok tok-o" style="opacity:.75">a book<sup>O₂物</sup></span>. ↔ 第3文型：He gave <span class="tok tok-o">a book<sup>O</sup></span> <span style="color:var(--dim)">to me</span>.</div>
+  <div class="sent-list"><div class="sent-box">
+  <div class="sent-en"><span class="tok tok-s">He<sup>S</sup></span> <span class="tok tok-v">gave<sup>V</sup></span> <span class="tok tok-o">me<sup>O₁</sup></span> <span class="tok tok-o" style="border-color:rgba(62,207,142,.7);opacity:.8">a book<sup>O₂</sup></span>.</div>
+  <div class="sent-jp">彼は私に本をくれた。</div>
+  <div class="sent-tags"><span class="stag stag-s">S: He</span><span class="stag stag-v">V: gave（授与動詞）</span><span class="stag stag-o">O₁: me（人・間接目的語）</span><span class="stag stag-o">O₂: a book（物・直接目的語）</span></div>
+</div><div class="sent-box">
+  <div class="sent-en"><span class="tok tok-s">She<sup>S</sup></span> <span class="tok tok-v">taught<sup>V</sup></span> <span class="tok tok-o">us<sup>O₁</sup></span> <span class="tok tok-o" style="border-color:rgba(62,207,142,.7);opacity:.8">math<sup>O₂</sup></span>.</div>
+  <div class="sent-jp">彼女は私たちに数学を教えた。</div>
+  <div class="sent-tags"><span class="stag stag-s">S: She</span><span class="stag stag-v">V: taught</span><span class="stag stag-o">O₁: us（人）</span><span class="stag stag-o">O₂: math（物）</span></div>
+</div><div class="sent-box">
+  <div class="sent-en"><span class="tok tok-s">I<sup>S</sup></span> <span class="tok tok-v">sent<sup>V</sup></span> <span class="tok tok-o">her<sup>O₁</sup></span> <span class="tok tok-o" style="border-color:rgba(62,207,142,.7);opacity:.8">flowers<sup>O₂</sup></span>.</div>
+  <div class="sent-jp">彼女に花を送った。</div>
+  <div class="sent-tags"><span class="stag stag-s">S: I</span><span class="stag stag-v">V: sent</span><span class="stag stag-o">O₁: her（人）</span><span class="stag stag-o">O₂: flowers（物）</span></div>
+</div></div>
+  <div class="verb-row"><span class="vc">give</span><span class="vc">tell</span><span class="vc">show</span><span class="vc">send</span><span class="vc">teach</span><span class="vc">buy</span><span class="vc">make</span><span class="vc">lend</span><span class="vc">bring</span><span class="vc">write</span></div>
+  <div class="tip-blk">💡 to か for かの判断：give / send / show / teach / tell → to（到達のイメージ）/ buy / make / cook / find → for（利益のイメージ）。</div>
+</div>
+<div class="sp5-card sc5">
+  <div class="sp5-head">
+    <span class="sp5-num" style="background:var(--cmod)22;color:var(--cmod);border:1px solid var(--cmod)44">第5文型</span>
+    <div class="sp5-formula"><span class="tok tok-s" style="font-size:.9rem;padding:3px 10px">S</span> <span style="color:var(--muted);font-size:.9rem">+</span> <span class="tok tok-v" style="font-size:.9rem;padding:3px 10px">V</span> <span style="color:var(--muted);font-size:.9rem">+</span> <span class="tok tok-o" style="font-size:.9rem;padding:3px 10px">O</span> <span style="color:var(--muted);font-size:.9rem">+</span> <span class="tok tok-c" style="font-size:.9rem;padding:3px 10px">C</span></div>
+  </div>
+  <div class="sp5-desc">目的語(O)の状態・結果・性質を補語(C)で説明する。<strong style="color:var(--cc)">O = C の関係が必ず成立する</strong>のが第5文型の特徴。</div>
+  <div class="sp5-rule"><strong>📌 ポイント：</strong>C には名詞・形容詞・動詞原形（使役）・過去分詞（受動）が来る。<br>使役: make/let/have + O + <strong>V原形</strong>（toなし）/ get + O + <strong>to V</strong>（toあり）。</div>
+  <div class="sent-list"><div class="sent-box">
+  <div class="sent-en"><span class="tok tok-s">They<sup>S</sup></span> <span class="tok tok-v">elected<sup>V</sup></span> <span class="tok tok-o">him<sup>O</sup></span> <span class="tok tok-c">president<sup>C</sup></span>.</div>
+  <div class="sent-jp">彼らは彼を大統領に選んだ。（O=C: him = president ✓）</div>
+  <div class="sent-tags"><span class="stag stag-s">S: They</span><span class="stag stag-v">V: elected</span><span class="stag stag-o">O: him</span><span class="stag stag-c">C: president → O=C 成立</span></div>
+</div><div class="sent-box">
+  <div class="sent-en"><span class="tok tok-s">I<sup>S</sup></span> <span class="tok tok-v">found<sup>V</sup></span> <span class="tok tok-o">the movie<sup>O</sup></span> <span class="tok tok-c">boring<sup>C</sup></span>.</div>
+  <div class="sent-jp">その映画を退屈だと思った。（O=C: the movie = boring ✓）</div>
+  <div class="sent-tags"><span class="stag stag-s">S: I</span><span class="stag stag-v">V: found</span><span class="stag stag-o">O: the movie</span><span class="stag stag-c">C: boring（形容詞）→ O=C 成立</span></div>
+</div><div class="sent-box">
+  <div class="sent-en"><span class="tok tok-s">She<sup>S</sup></span> <span class="tok tok-v">made<sup>V</sup></span> <span class="tok tok-o">him<sup>O</sup></span> <span class="tok tok-c">happy<sup>C</sup></span>.</div>
+  <div class="sent-jp">彼女は彼を幸せにした。（O=C: him = happy ✓）</div>
+  <div class="sent-tags"><span class="stag stag-s">S: She</span><span class="stag stag-v">V: made（使役動詞）</span><span class="stag stag-o">O: him</span><span class="stag stag-c">C: happy → O=C 成立</span></div>
+</div></div>
+  <div class="verb-row"><span class="vc">make</span><span class="vc">let</span><span class="vc">have</span><span class="vc">find</span><span class="vc">keep</span><span class="vc">call</span><span class="vc">name</span><span class="vc">elect</span><span class="vc">consider</span><span class="vc">get</span></div>
+  <div class="tip-blk">💡 チェック：O=Cが成立すれば第5文型。「They call him Bob.」→ him = Bob ✓。「I made him a cake.」→ him ≠ a cake ✗ → 第4文型。</div>
+</div></div>
+
+</div>
+<script>
+// ── Simple pattern-based sentence colorer ──────────────
+const PATTERNS5 = [
+  // Each: {pattern_name, check_fn, color_fn}
+  // We use a dictionary of common sentences for demo accuracy
+];
+
+const KNOWN = {
+  "She is a doctor.": {type:"第2文型 S+V+C", html:`<span class="tok tok-s">She<sup>S</sup></span> <span class="tok tok-v">is<sup>V</sup></span> <span class="tok tok-c">a doctor<sup>C</sup></span>.`, note:"S=C 成立（She = a doctor）"},
+  "She is a teacher.": {type:"第2文型 S+V+C", html:`<span class="tok tok-s">She<sup>S</sup></span> <span class="tok tok-v">is<sup>V</sup></span> <span class="tok tok-c">a teacher<sup>C</sup></span>.`, note:"S=C 成立（She = a teacher）"},
+  "They made him happy.": {type:"第5文型 S+V+O+C", html:`<span class="tok tok-s">They<sup>S</sup></span> <span class="tok tok-v">made<sup>V</sup></span> <span class="tok tok-o">him<sup>O</sup></span> <span class="tok tok-c">happy<sup>C</sup></span>.`, note:"O=C 成立（him = happy）"},
+  "I gave her a gift.": {type:"第4文型 S+V+O₁+O₂", html:`<span class="tok tok-s">I<sup>S</sup></span> <span class="tok tok-v">gave<sup>V</sup></span> <span class="tok tok-o">her<sup>O₁人</sup></span> <span class="tok tok-o" style="opacity:.75">a gift<sup>O₂物</sup></span>.`, note:"O₁=人（her）、O₂=物（a gift）"},
+  "He runs fast.": {type:"第1文型 S+V（+副詞）", html:`<span class="tok tok-s">He<sup>S</sup></span> <span class="tok tok-v">runs<sup>V</sup></span> <span class="tok tok-a">fast<sup>副詞</sup></span>.`, note:"fast は副詞（目的語ではない）→ 第1文型"},
+  "We found the exam difficult.": {type:"第5文型 S+V+O+C", html:`<span class="tok tok-s">We<sup>S</sup></span> <span class="tok tok-v">found<sup>V</sup></span> <span class="tok tok-o">the exam<sup>O</sup></span> <span class="tok tok-c">difficult<sup>C</sup></span>.`, note:"O=C 成立（the exam = difficult）"},
+  "She taught us English.": {type:"第4文型 S+V+O₁+O₂", html:`<span class="tok tok-s">She<sup>S</sup></span> <span class="tok tok-v">taught<sup>V</sup></span> <span class="tok tok-o">us<sup>O₁人</sup></span> <span class="tok tok-o" style="opacity:.75">English<sup>O₂物</sup></span>.`, note:"O₁=人（us）、O₂=物（English）"},
+  "The dog looks friendly.": {type:"第2文型 S+V+C", html:`<span class="tok tok-s">The dog<sup>S</sup></span> <span class="tok tok-v">looks<sup>V</sup></span> <span class="tok tok-c">friendly<sup>C</sup></span>.`, note:"S=C 成立（The dog = friendly）"},
+  "I like reading books.": {type:"第3文型 S+V+O", html:`<span class="tok tok-s">I<sup>S</sup></span> <span class="tok tok-v">like<sup>V</sup></span> <span class="tok tok-o">reading books<sup>O（動名詞句）</sup></span>.`, note:"likeは他動詞。reading booksは動名詞句で目的語"},
+};
+
+// Linking verbs & patterns for auto-analysis
+const LINKING = ['is','am','are','was','were','become','becomes','became','seem','seems','seemed','look','looks','looked','feel','feels','felt','smell','smells','smelled','taste','tastes','tasted','sound','sounds','sounded','appear','appears','appeared','stay','stays','stayed','remain','remains','remained','turn','turns','turned','get','gets','got'];
+const CAUSATIVE = ['make','makes','made','let','lets','have','has','had'];
+const DITRANS = ['give','gives','gave','tell','tells','told','show','shows','showed','send','sends','sent','teach','teaches','taught','buy','buys','bought','lend','lends','lent','bring','brings','brought','write','writes','wrote','offer','offers','offered'];
+
+function autoColor(sentence) {
+  const s = sentence.trim().replace(/\.$/,'');
+  const words = s.split(/\s+/);
+  if(words.length < 2) return {html: sentence, type:'—', note:'文が短すぎます'};
+  
+  // Very simplified heuristic coloring
+  const w0 = words[0].toLowerCase();
+  const pronouns = ['i','you','he','she','it','we','they','the','a','an','this','that','these','those','my','your','his','her','our','their'];
+  
+  // Find verb index (rough heuristic: second "word group" or common verbs)
+  let vi = 1;
+  // Multi-word subject (e.g., "The sun")
+  if(pronouns.includes(w0) && words.length > 2 && !['is','am','are','was','were','run','runs','go','goes','live','lives'].includes(words[1].toLowerCase())) {
+    vi = 1; // assume single-word S for simplicity
+  }
+  
+  const verb = words[vi] ? words[vi].toLowerCase() : '';
+  const rest = words.slice(vi+1).join(' ');
+  const subj = words.slice(0,vi).join(' ');
+  
+  let type, html, note;
+  
+  if(LINKING.includes(verb) && rest) {
+    type = '第2文型 S+V+C';
+    html = `<span class="tok tok-s">${subj}<sup>S</sup></span> <span class="tok tok-v">${words[vi]}<sup>V</sup></span> <span class="tok tok-c">${rest}<sup>C</sup></span>.`;
+    note = `S=C 成立（${subj} = ${rest}）`;
+  } else if(DITRANS.includes(verb) && rest.split(' ').length >= 3) {
+    const rwords = rest.split(' ');
+    const o1 = rwords[0];
+    const o2 = rwords.slice(1).join(' ');
+    type = '第4文型 S+V+O₁+O₂';
+    html = `<span class="tok tok-s">${subj}<sup>S</sup></span> <span class="tok tok-v">${words[vi]}<sup>V</sup></span> <span class="tok tok-o">${o1}<sup>O₁人</sup></span> <span class="tok tok-o" style="opacity:.75">${o2}<sup>O₂物</sup></span>.`;
+    note = `O₁=人（${o1}）、O₂=物（${o2}）`;
+  } else if(CAUSATIVE.includes(verb) && rest) {
+    const rwords = rest.split(' ');
+    const obj = rwords[0];
+    const comp = rwords.slice(1).join(' ');
+    if(comp) {
+      type = '第5文型 S+V+O+C';
+      html = `<span class="tok tok-s">${subj}<sup>S</sup></span> <span class="tok tok-v">${words[vi]}<sup>V</sup></span> <span class="tok tok-o">${obj}<sup>O</sup></span> <span class="tok tok-c">${comp}<sup>C</sup></span>.`;
+      note = `O=C 成立（${obj} = ${comp}）`;
+    } else {
+      type = '第3文型 S+V+O';
+      html = `<span class="tok tok-s">${subj}<sup>S</sup></span> <span class="tok tok-v">${words[vi]}<sup>V</sup></span> <span class="tok tok-o">${rest}<sup>O</sup></span>.`;
+      note = `${words[vi]}は他動詞`;
+    }
+  } else if(!rest) {
+    type = '第1文型 S+V';
+    html = `<span class="tok tok-s">${subj}<sup>S</sup></span> <span class="tok tok-v">${words[vi]}<sup>V</sup></span>.`;
+    note = `動詞のみ、目的語なし → 自動詞`;
+  } else {
+    // Check for adverbs (fast, quickly, etc.)
+    const adverbs = ['fast','quickly','slowly','well','hard','early','late','here','there','now','today','tomorrow','yesterday'];
+    const restwords = rest.split(' ');
+    if(restwords.length === 1 && adverbs.includes(restwords[0].toLowerCase())) {
+      type = '第1文型 S+V（+副詞）';
+      html = `<span class="tok tok-s">${subj}<sup>S</sup></span> <span class="tok tok-v">${words[vi]}<sup>V</sup></span> <span class="tok tok-a">${rest}<sup>副詞</sup></span>.`;
+      note = `${rest}は副詞（目的語ではない）→ 第1文型`;
+    } else {
+      type = '第3文型 S+V+O';
+      html = `<span class="tok tok-s">${subj}<sup>S</sup></span> <span class="tok tok-v">${words[vi]}<sup>V</sup></span> <span class="tok tok-o">${rest}<sup>O</sup></span>.`;
+      note = `目的語: ${rest}`;
+    }
+  }
+  return {html, type, note};
+}
+
+function analyze() {
+  const inp = document.getElementById('ana-inp').value.trim();
+  if(!inp) return;
+  const out = document.getElementById('ana-out');
+  const note = document.getElementById('ana-note');
+  
+  // Check known sentences first
+  const k = KNOWN[inp];
+  if(k) {
+    out.innerHTML = k.html;
+    note.innerHTML = `<span style="color:var(--gold);font-weight:700">${k.type}</span> — ${k.note}`;
+  } else {
+    const r = autoColor(inp);
+    out.innerHTML = r.html;
+    note.innerHTML = `<span style="color:var(--gold);font-weight:700">${r.type}</span> — ${r.note} <span style="color:var(--muted);font-size:.75rem">（自動解析・参考値）</span>`;
+  }
+}
+
+function loadPreset(s) {
+  document.getElementById('ana-inp').value = s;
+  analyze();
+}
+
+// Auto-analyze on load
+analyze();
+</script>
+</body></html>
