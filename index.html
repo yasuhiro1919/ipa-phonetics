@@ -2,960 +2,184 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IPA発音記号マスターガイド｜英語・タイ語・日本語</title>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans+Thai:wght@300;400;500;700&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>英語・タイ語 文法構造ガイド | TOP</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Noto+Sans+Thai:wght@300;400;500;700&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#06080e;--bg2:#090c14;--surf:#0d1220;--surf2:#111828;--bdr:#1a2840;--bdr2:#243550;--text:#dce8f8;--dim:#6888aa;--muted:#2d4460;--en:#4a9eff;--en-bg:rgba(74,158,255,.1);--en-bdr:rgba(74,158,255,.2);--th:#ff7c44;--th-bg:rgba(255,124,68,.1);--th-bdr:rgba(255,124,68,.2);--ja:#3ecf8e;--ja-bg:rgba(62,207,142,.1);--ja-bdr:rgba(62,207,142,.2);--gold:#f0bc30;--gold-bg:rgba(240,188,48,.1);--gold-bdr:rgba(240,188,48,.25);--violet:#a78bfa;--tip:#f59e0b;--tip-bg:rgba(245,158,11,.08);--warn-bg:rgba(239,68,68,.08);--r:10px;--r2:7px;}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{font-family:'Zen Kaku Gothic New','Noto Sans Thai',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:15px;line-height:1.65;}
+.top-nav{background:var(--surf);border-bottom:1px solid var(--bdr);padding:0 18px;position:sticky;top:0;z-index:300;backdrop-filter:blur(14px);}
+.top-nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:6px;overflow-x:auto;padding:10px 0;}
+.top-nav-inner::-webkit-scrollbar{display:none;}
+.tnbtn{padding:8px 16px;border:1px solid var(--bdr);background:transparent;color:var(--dim);border-radius:100px;font-size:.78rem;font-weight:600;white-space:nowrap;text-decoration:none;transition:all .18s;}
+.tnbtn:hover{color:var(--text);border-color:var(--bdr2);}
+.tnbtn.cur{background:var(--gold);border-color:var(--gold);color:#06080e;}
+.page-hero{background:linear-gradient(155deg,#07101e 0%,#0d1c30 45%,#091420 100%);border-bottom:1px solid var(--bdr);padding:40px 24px 32px;text-align:center;position:relative;overflow:hidden;}
+.page-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--gold-bg);border:1px solid var(--gold-bdr);color:var(--gold);font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:5px 16px;border-radius:100px;margin-bottom:16px;}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,4vw,2.5rem);font-style:italic;background:linear-gradient(140deg,#dce8f8 30%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;}
+.page-hero p{color:var(--dim);font-size:.86rem;max-width:540px;margin:0 auto;}
+.ctn{max-width:1200px;margin:0 auto;padding:28px 18px 72px;}
+.sh{margin-bottom:24px;}.sh-title{font-size:1.4rem;font-weight:700;margin-bottom:5px;}.sh-sub{color:var(--dim);font-size:.85rem;}
+.intro-banner{background:linear-gradient(135deg,var(--en-bg),var(--surf2));border:1px solid var(--en-bdr);border-radius:var(--r);padding:18px 22px;margin-bottom:24px;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:start;}
+.intro-icon{font-size:1.6rem;}
+.intro-banner h3{font-size:.92rem;font-weight:700;color:var(--en);margin-bottom:6px;}
+.intro-banner p{font-size:.82rem;color:var(--dim);line-height:1.65;margin-bottom:5px;}
+.intro-banner p:last-child{margin:0;}
+.hl-en{color:var(--en);font-weight:700;}.hl-th{color:var(--th);font-weight:700;}.hl-g{color:var(--gold);font-weight:700;}
+del{text-decoration:line-through;color:#ef4444;opacity:.7;}u{text-decoration:underline;color:var(--ja);}
+@media(max-width:768px){.ctn{padding:18px 12px 60px;}}
+</style>
+
 <style>
 :root{
-  --bg:#07090f;--bg2:#0c1018;--surface:#101520;--surface2:#161e2d;--surface3:#1d2840;
-  --border:#1e2d45;--text:#d8e8f5;--text-dim:#6f92b8;--text-muted:#334d6a;
-  --en:#5ba8f5;--en-bg:rgba(91,168,245,0.1);
-  --th:#f07850;--th-bg:rgba(240,120,80,0.1);
-  --ja:#48c88a;--ja-bg:rgba(72,200,138,0.1);
-  --gold:#f0c048;--gold-bg:rgba(240,192,72,0.1);
-  --ok:#48c88a;--no:#e05858;--part:#f0a038;
-  --r:10px;
+  --cs:#4a9eff;--cs-bg:rgba(74,158,255,.13);--cs-bdr:rgba(74,158,255,.4);
+  --cv:#ff7c44;--cv-bg:rgba(255,124,68,.13);--cv-bdr:rgba(255,124,68,.4);
+  --co:#3ecf8e;--co-bg:rgba(62,207,142,.13);--co-bdr:rgba(62,207,142,.4);
+  --cc:#f0bc30;--cc-bg:rgba(240,188,48,.13);--cc-bdr:rgba(240,188,48,.4);
+  --cmod:#c084fc;--cmod-bg:rgba(192,132,252,.12);--cmod-bdr:rgba(192,132,252,.35);
+  --cadv:#22d3ee;--cadv-bg:rgba(34,211,238,.1);--cadv-bdr:rgba(34,211,238,.3);
 }
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Outfit','Noto Sans JP','Noto Sans Thai',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:15px;line-height:1.6;}
+.tok{display:inline;border-radius:4px;padding:1px 6px;font-weight:600;line-height:1.9;}
+.tok-s{background:var(--cs-bg);border:1px solid var(--cs-bdr);color:var(--cs);}
+.tok-v{background:var(--cv-bg);border:1px solid var(--cv-bdr);color:var(--cv);}
+.tok-o{background:var(--co-bg);border:1px solid var(--co-bdr);color:var(--co);}
+.tok-c{background:var(--cc-bg);border:1px solid var(--cc-bdr);color:var(--cc);}
+.tok-m{background:var(--cmod-bg);border:1px solid var(--cmod-bdr);color:var(--cmod);}
+.tok-a{background:var(--cadv-bg);border:1px solid var(--cadv-bdr);color:var(--cadv);}
+.tok sup{font-size:.52em;font-weight:800;opacity:.75;margin-left:1px;}
 
-/* HEADER */
-.hdr{background:linear-gradient(160deg,#060c1c 0%,#0b1428 60%,#07090f 100%);border-bottom:1px solid var(--border);padding:44px 24px 32px;text-align:center;position:relative;overflow:hidden;}
-.hdr::before{content:'/ IPA /';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'JetBrains Mono',monospace;font-size:9rem;font-weight:700;color:rgba(91,168,245,0.035);letter-spacing:4px;pointer-events:none;white-space:nowrap;}
-.hdr-badge{display:inline-block;background:var(--gold-bg);border:1px solid rgba(240,192,72,0.35);color:var(--gold);font-size:0.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 14px;border-radius:100px;margin-bottom:14px;}
-.hdr h1{font-size:clamp(1.5rem,4vw,2.3rem);font-weight:800;background:linear-gradient(135deg,#d8e8f5 20%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:8px;}
-.hdr p{color:var(--text-dim);font-size:0.88rem;max-width:580px;margin:0 auto 22px;font-weight:300;}
-.lang-legend{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-bottom:12px;}
-.lang-tag{display:flex;align-items:center;gap:7px;font-size:0.83rem;font-weight:600;}
-.lang-dot{width:9px;height:9px;border-radius:50%;}
-.pkey{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;font-size:0.76rem;color:var(--text-muted);}
-.pkey span{display:flex;align-items:center;gap:5px;}
+.legend{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:24px;padding:14px 18px;background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);}
+.litem{display:flex;align-items:center;gap:6px;font-size:.78rem;font-weight:600;}
+.ldot{width:28px;height:22px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:.68rem;font-weight:800;font-family:'JetBrains Mono',monospace;}
+.ld-s{background:var(--cs-bg);border:1px solid var(--cs-bdr);color:var(--cs);}
+.ld-v{background:var(--cv-bg);border:1px solid var(--cv-bdr);color:var(--cv);}
+.ld-o{background:var(--co-bg);border:1px solid var(--co-bdr);color:var(--co);}
+.ld-c{background:var(--cc-bg);border:1px solid var(--cc-bdr);color:var(--cc);}
+.ld-m{background:var(--cmod-bg);border:1px solid var(--cmod-bdr);color:var(--cmod);}
+.ld-a{background:var(--cadv-bg);border:1px solid var(--cadv-bdr);color:var(--cadv);}
+.lname{color:var(--dim);}
 
-/* NAV */
-.nav{background:var(--surface);border-bottom:1px solid var(--border);padding:10px 20px;display:flex;justify-content:center;gap:6px;flex-wrap:wrap;position:sticky;top:0;z-index:200;backdrop-filter:blur(10px);}
-.nbtn{padding:8px 16px;border:1px solid var(--border);background:transparent;color:var(--text-dim);border-radius:100px;cursor:pointer;font-family:inherit;font-size:0.81rem;font-weight:600;transition:all .18s;white-space:nowrap;}
-.nbtn:hover{color:var(--text);border-color:var(--text-dim);}
-.nbtn.active{background:var(--gold);border-color:var(--gold);color:#07090f;}
-.sub-link{margin-left:auto;display:flex;align-items:center;gap:8px;}
-.sub-link a{color:var(--text-dim);font-size:0.8rem;text-decoration:none;border:1px solid var(--border);padding:6px 14px;border-radius:100px;transition:all .18s;}
-.sub-link a:hover{border-color:var(--gold);color:var(--gold);}
+.demo-box{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);padding:22px;margin-bottom:24px;}
+.demo-box h3{font-size:.92rem;font-weight:700;color:var(--gold);margin-bottom:14px;}
+.demo-row{display:flex;flex-direction:column;gap:8px;}
+.demo-sent{font-size:1rem;line-height:2;padding:10px 14px;background:var(--bg2);border:1px solid var(--bdr);border-radius:var(--r2);}
+.demo-jp{font-size:.78rem;color:var(--dim);margin-top:2px;}
+.demo-badge{font-size:.68rem;font-weight:700;padding:2px 8px;border-radius:100px;display:inline-block;margin-top:4px;background:var(--surf2);border:1px solid var(--bdr2);color:var(--dim);}
 
-/* CONTAINER */
-.ctn{max-width:1240px;margin:0 auto;padding:28px 18px 60px;}
-.section{display:none;}
-.section.active{display:block;}
-
-/* SECTION HEADER */
-.sh{margin-bottom:24px;}
-.st{font-size:1.5rem;font-weight:700;margin-bottom:5px;}
-.sd{color:var(--text-dim);font-size:0.87rem;}
-
-/* TOOLBAR */
-.toolbar{display:flex;gap:8px;margin-bottom:20px;flex-wrap:wrap;align-items:center;}
-.srch{flex:1;min-width:180px;padding:10px 14px;background:var(--surface2);border:1px solid var(--border);border-radius:var(--r);color:var(--text);font-family:inherit;font-size:0.87rem;outline:none;transition:border-color .2s;}
-.srch:focus{border-color:var(--gold);}
-.srch::placeholder{color:var(--text-muted);}
-.fbtn{padding:8px 14px;border:1px solid var(--border);background:transparent;color:var(--text-dim);border-radius:100px;cursor:pointer;font-family:inherit;font-size:0.79rem;font-weight:600;transition:all .18s;white-space:nowrap;}
-.fbtn:hover{border-color:var(--text-dim);color:var(--text);}
-.fbtn.fall.active{color:var(--gold);border-color:var(--gold);background:var(--gold-bg);}
-.fbtn.fen.active{color:var(--en);border-color:var(--en);background:var(--en-bg);}
-.fbtn.fth.active{color:var(--th);border-color:var(--th);background:var(--th-bg);}
-.fbtn.fja.active{color:var(--ja);border-color:var(--ja);background:var(--ja-bg);}
-.cbadge{background:var(--surface2);border:1px solid var(--border);color:var(--text-dim);font-size:0.76rem;font-weight:600;padding:5px 12px;border-radius:100px;white-space:nowrap;}
-
-/* CARDS */
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:13px;}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px;transition:transform .18s,box-shadow .18s,border-color .18s;animation:cIn .25s ease both;}
-.card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.45);border-color:rgba(240,192,72,.35);}
-.card.hidden{display:none;}
-@keyframes cIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-
-.ctop{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:9px;}
-.isym{font-family:'JetBrains Mono',monospace;font-size:2rem;font-weight:700;color:var(--gold);line-height:1;}
-.cbtns{display:flex;gap:5px;}
-.bc{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:var(--surface2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:0.85rem;transition:all .18s;text-decoration:none;color:var(--text-dim);}
-.bspeak{color:var(--en);}
-.bspeak:hover{background:var(--en-bg);border-color:var(--en);}
-.bdict:hover{background:var(--gold-bg);border-color:var(--gold);color:var(--gold);}
-.cword{font-size:1rem;font-weight:600;margin-bottom:2px;}
-.ckana{font-size:0.83rem;color:var(--text-dim);margin-bottom:4px;}
-.cname{font-size:0.7rem;color:var(--text-muted);margin-bottom:10px;font-weight:500;}
-.ctips{font-size:0.81rem;color:var(--text-dim);line-height:1.55;padding:9px 11px;background:var(--surface2);border-radius:7px;border-left:3px solid var(--gold);margin-bottom:11px;}
-.cex{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px;}
-.ext{background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:2px 8px;font-family:'JetBrains Mono',monospace;font-size:0.74rem;}
-.ext.ene{color:var(--en);border-color:rgba(91,168,245,.2);}
-.ext.the{color:var(--th);border-color:rgba(240,120,80,.2);font-family:'Noto Sans Thai',sans-serif;font-size:0.78rem;}
-.ext.jae{color:var(--ja);border-color:rgba(72,200,138,.2);font-family:'Noto Sans JP',sans-serif;}
-.lrow{display:flex;gap:5px;}
-.lchip{flex:1;padding:5px 5px;border-radius:7px;text-align:center;font-size:0.67rem;font-weight:700;border:1px solid transparent;}
-.lchip .cl{display:block;font-size:0.58rem;opacity:.7;margin-bottom:1px;}
-.lchip.ok{background:rgba(72,200,138,.1);border-color:rgba(72,200,138,.25);color:var(--ok);}
-.lchip.no{background:rgba(224,88,88,.07);border-color:rgba(224,88,88,.15);color:var(--no);}
-.lchip.part{background:rgba(240,160,56,.1);border-color:rgba(240,160,56,.25);color:var(--part);}
-
-/* COMPARISON TABLE */
-.twrap{overflow-x:auto;border-radius:var(--r);border:1px solid var(--border);margin-bottom:28px;}
-.ctbl{width:100%;border-collapse:collapse;font-size:0.84rem;}
-.ctbl th{background:var(--surface2);padding:11px 13px;text-align:left;font-weight:600;color:var(--text-dim);border-bottom:1px solid var(--border);white-space:nowrap;}
-.ctbl th.enh{color:var(--en);}
-.ctbl th.thh{color:var(--th);}
-.ctbl th.jah{color:var(--ja);}
-.ctbl td{padding:10px 13px;border-bottom:1px solid var(--border);vertical-align:middle;}
-.ctbl tr:last-child td{border-bottom:none;}
-.ctbl tr:hover td{background:var(--surface2);}
-.ic{font-family:'JetBrains Mono',monospace;color:var(--gold);font-size:1.05rem;font-weight:700;}
-.ss{font-weight:700;font-size:0.95rem;}
-.so{color:var(--ok)}.sn{color:var(--no)}.sp{color:var(--part)}
-
-/* THAI SPECIAL */
-.tcard{background:var(--surface);border:1px solid rgba(240,120,80,.35);border-left:4px solid var(--th);border-radius:var(--r);padding:20px;margin-bottom:12px;transition:transform .18s;}
-.tcard:hover{transform:translateX(4px);}
-.tsrow{display:flex;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap;}
-.tsym{font-family:'JetBrains Mono',monospace;font-size:1.7rem;font-weight:700;color:var(--th);line-height:1;}
-.tbadge{background:var(--th-bg);border:1px solid rgba(240,120,80,.3);color:var(--th);font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:100px;}
-.tex{font-family:'Noto Sans Thai',sans-serif;font-size:1rem;color:var(--th);}
-.tdesc{font-size:0.84rem;color:var(--text-dim);line-height:1.6;margin-bottom:10px;}
-.ttip{background:var(--surface2);border-radius:7px;padding:9px 11px;font-size:0.81rem;color:var(--text-dim);border-left:3px solid var(--th);}
-
-/* TIPS */
-.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:13px;}
-.tblock{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px;}
-.tblock h3{font-size:0.92rem;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:7px;}
-.tblock ul{padding-left:17px;}
-.tblock li{font-size:0.82rem;color:var(--text-dim);margin-bottom:7px;line-height:1.55;}
-.tblock li strong{color:var(--gold);}
-.tblock a{color:var(--gold);}
-
-/* TONES ─────────────────────────────────── */
-.tone-overview{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:13px;margin-bottom:32px;}
-.tone-intro{background:var(--surface);border:1px solid rgba(240,120,80,.35);border-radius:var(--r);padding:20px;}
-.tone-intro h3{font-size:1rem;font-weight:700;margin-bottom:10px;color:var(--th);}
-.tone-intro p{font-size:.83rem;color:var(--text-dim);line-height:1.6;margin-bottom:8px;}
-.tone-intro .warn{background:rgba(240,192,72,.08);border:1px solid rgba(240,192,72,.25);border-radius:7px;padding:9px 11px;font-size:.8rem;color:var(--gold);}
-
-/* 5 tone cards */
-.tone5-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:13px;margin-bottom:32px;}
-.tone-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px;transition:transform .18s,box-shadow .18s;position:relative;overflow:hidden;}
-.tone-card:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(0,0,0,.4);}
-.tone-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
-.tc-mid::before{background:var(--text-dim);}
-.tc-low::before{background:#7878f0;}
-.tc-fall::before{background:#e05858;}
-.tc-high::before{background:var(--gold);}
-.tc-rise::before{background:var(--ok);}
-.tc-num{font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:700;color:var(--text-muted);margin-bottom:5px;}
-.tc-name-th{font-family:'Noto Sans Thai',sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:2px;}
-.tc-name-ja{font-size:.78rem;color:var(--text-dim);margin-bottom:12px;}
-.tc-mark{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
-.tc-sym{font-family:'Noto Sans Thai',sans-serif;font-size:1.6rem;line-height:1;font-weight:700;}
-.tc-mark-name{font-size:.75rem;color:var(--text-dim);line-height:1.3;}
-.tc-curve{width:100%;height:48px;margin-bottom:12px;}
-.tc-pitch{font-size:.75rem;font-weight:700;padding:4px 10px;border-radius:100px;display:inline-block;margin-bottom:12px;}
-.tc-mid .tc-pitch{background:rgba(111,146,184,.15);color:var(--text-dim);}
-.tc-low .tc-pitch{background:rgba(120,120,240,.15);color:#9898f5;}
-.tc-fall .tc-pitch{background:rgba(224,88,88,.12);color:#e07878;}
-.tc-high .tc-pitch{background:var(--gold-bg);color:var(--gold);}
-.tc-rise .tc-pitch{background:var(--ja-bg);color:var(--ok);}
-.tc-ex{margin-bottom:10px;}
-.tc-ex-row{display:flex;align-items:baseline;gap:6px;padding:5px 0;border-bottom:1px solid var(--border);}
-.tc-ex-row:last-child{border-bottom:none;}
-.tc-ex-th{font-family:'Noto Sans Thai',sans-serif;font-size:1rem;font-weight:700;min-width:44px;}
-.tc-ex-rom{font-family:'JetBrains Mono',monospace;font-size:.77rem;color:var(--text-dim);min-width:60px;}
-.tc-ex-mn{font-size:.77rem;color:var(--text);}
-.tc-tip{background:var(--surface2);border-radius:7px;padding:8px 10px;font-size:.78rem;color:var(--text-dim);border-left:3px solid var(--th);}
-
-/* Consonant classes */
-.cls-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:13px;margin-bottom:32px;}
-.cls-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px;}
-.cls-head{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
-.cls-badge{font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:100px;}
-.cls-h{background:var(--gold-bg);border:1px solid rgba(240,192,72,.3);color:var(--gold);}
-.cls-m{background:var(--en-bg);border:1px solid rgba(91,168,245,.3);color:var(--en);}
-.cls-l{background:var(--ja-bg);border:1px solid rgba(72,200,138,.3);color:var(--ok);}
-.cls-chars{font-family:'Noto Sans Thai',sans-serif;font-size:1.1rem;letter-spacing:3px;margin-bottom:8px;color:var(--text);}
-.cls-count{font-size:.75rem;color:var(--text-muted);margin-bottom:10px;}
-.cls-tones{display:flex;gap:5px;flex-wrap:wrap;}
-.cls-tone-chip{font-size:.7rem;font-weight:600;padding:3px 9px;border-radius:6px;border:1px solid var(--border);}
-.cls-tip{margin-top:10px;font-size:.8rem;color:var(--text-dim);padding:8px 10px;background:var(--surface2);border-radius:7px;}
-
-/* Tone rules table */
-.trule-wrap{overflow-x:auto;border-radius:var(--r);border:1px solid var(--border);margin-bottom:32px;}
-.trule-tbl{width:100%;border-collapse:collapse;font-size:.82rem;}
-.trule-tbl th{background:var(--surface2);padding:9px 13px;text-align:center;font-weight:600;color:var(--text-dim);border-bottom:1px solid var(--border);white-space:nowrap;}
-.trule-tbl td{padding:9px 13px;border-bottom:1px solid var(--border);text-align:center;vertical-align:middle;}
-.trule-tbl tr:last-child td{border-bottom:none;}
-.trule-tbl tr:hover td{background:var(--surface2);}
-.trule-tbl .th-txt{font-family:'Noto Sans Thai',sans-serif;}
-.t-mid{color:var(--text-dim);font-weight:700;}
-.t-low{color:#9898f5;font-weight:700;}
-.t-fall{color:#e07878;font-weight:700;}
-.t-high{color:var(--gold);font-weight:700;}
-.t-rise{color:var(--ok);font-weight:700;}
-
-/* Minimal pairs */
-.pair-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:13px;margin-bottom:28px;}
-.pair-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:18px;transition:transform .18s;}
-.pair-card:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.35);}
-.pair-title{font-size:.72rem;font-weight:700;letter-spacing:2px;color:var(--text-muted);margin-bottom:12px;text-transform:uppercase;}
-.pair-row{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:7px;margin-bottom:6px;background:var(--surface2);}
-.pair-row:last-child{margin-bottom:0;}
-.pair-th{font-family:'Noto Sans Thai',sans-serif;font-size:1.35rem;font-weight:700;min-width:54px;}
-.pair-rom{font-family:'JetBrains Mono',monospace;font-size:.8rem;color:var(--text-dim);min-width:70px;}
-.pair-tone{font-size:.67rem;font-weight:700;padding:2px 7px;border-radius:100px;white-space:nowrap;}
-.pt-mid{background:rgba(111,146,184,.15);color:var(--text-dim);}
-.pt-low{background:rgba(120,120,240,.12);color:#9898f5;}
-.pt-fall{background:rgba(224,88,88,.1);color:#e07878;}
-.pt-high{background:var(--gold-bg);color:var(--gold);}
-.pt-rise{background:var(--ja-bg);color:var(--ok);}
-.pair-mn{font-size:.82rem;color:var(--text);flex:1;}
-
-/* Mnemonic / practice */
-.mne-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:12px;margin-bottom:28px;}
-.mne-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px;}
-.mne-card h3{font-size:.9rem;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:6px;}
-.mne-card ul{padding-left:16px;}
-.mne-card li{font-size:.81rem;color:var(--text-dim);margin-bottom:6px;line-height:1.55;}
-.mne-card li strong{color:var(--gold);}
-.mne-card .tcode{font-family:'JetBrains Mono',monospace;font-size:.85rem;color:var(--th);}
-.tone-quiz{background:var(--surface);border:1px solid rgba(240,120,80,.3);border-radius:var(--r);padding:20px;margin-bottom:20px;}
-.tone-quiz h3{font-size:1rem;font-weight:700;margin-bottom:14px;color:var(--th);}
-.quiz-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
-.quiz-word{font-family:'Noto Sans Thai',sans-serif;font-size:1.5rem;font-weight:700;min-width:60px;}
-.quiz-btn{padding:6px 14px;border:1px solid var(--border);background:transparent;color:var(--text-dim);border-radius:100px;cursor:pointer;font-family:inherit;font-size:.78rem;font-weight:600;transition:all .18s;}
-.quiz-btn:hover{border-color:var(--th);color:var(--th);}
-.quiz-btn.correct{background:var(--ja-bg);border-color:var(--ok);color:var(--ok);}
-.quiz-btn.wrong{background:rgba(224,88,88,.08);border-color:#e05858;color:#e07878;}
-.quiz-ans{font-size:.8rem;padding:5px 11px;border-radius:100px;display:none;}
-.quiz-ans.show{display:inline-block;}
-.quiz-ans.ok{background:var(--ja-bg);color:var(--ok);}
-.quiz-ans.ng{background:rgba(224,88,88,.08);color:#e07878;}
-
-/* Pitch diagram SVG */
-.pitch-diagram{width:100%;height:80px;background:var(--surface2);border-radius:8px;margin-bottom:10px;overflow:hidden;}
-
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
-.speaking .bspeak{animation:pulse .4s infinite;background:var(--en-bg);border-color:var(--en);}
-
-@media(max-width:640px){
-  .hdr h1{font-size:1.35rem;}
-  .grid{grid-template-columns:1fr;}
-  .nbtn{padding:7px 11px;font-size:0.77rem;}
-}
+.idx-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:8px;}
+.idx-card{background:var(--surf);border:1px solid var(--bdr);border-radius:var(--r);padding:22px;text-decoration:none;color:var(--text);transition:transform .2s,box-shadow .2s,border-color .2s;display:block;}
+.idx-card:hover{transform:translateY(-4px);box-shadow:0 14px 44px rgba(0,0,0,.5);border-color:var(--bdr2);}
+.idx-ic{font-size:2rem;margin-bottom:10px;display:block;}
+.idx-title{font-size:1.05rem;font-weight:700;margin-bottom:5px;}
+.idx-sub{font-size:.81rem;color:var(--dim);line-height:1.6;margin-bottom:10px;}
+.idx-tags{display:flex;gap:5px;flex-wrap:wrap;}
+.idx-tag{font-size:.67rem;font-weight:700;padding:2px 8px;border-radius:4px;}
+.t-en{background:var(--en-bg);border:1px solid var(--en-bdr);color:var(--en);}
+.t-th{background:var(--th-bg);border:1px solid var(--th-bdr);color:var(--th);}
+.t-g{background:var(--gold-bg);border:1px solid var(--gold-bdr);color:var(--gold);}
+.t-ja{background:var(--ja-bg);border:1px solid var(--ja-bdr);color:var(--ja);}
+.t-v{background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.25);color:var(--violet);}
+.idx-note{margin-top:9px;font-size:.75rem;color:var(--muted);}
+.sec-head{font-size:.78rem;font-weight:700;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin:28px 0 12px;display:flex;align-items:center;gap:8px;}
+.sec-head::after{content:'';flex:1;height:1px;background:var(--bdr);}
 </style>
 </head>
 <body>
+<div class="top-nav"><div class="top-nav-inner"><a class="tnbtn cur" href="index.html">🏠 TOP</a><a class="tnbtn" href="grammar-5patterns.html">📐 5文型</a><a class="tnbtn" href="grammar-constructs-A.html">📝 構文 #1-35</a><a class="tnbtn" href="grammar-constructs-B.html">📝 構文 #36-70</a><a class="tnbtn" href="grammar-pos-tips.html">🏷 品詞・tips</a><a class="tnbtn" href="ipa-phonetics.html">🎙 発音記号</a></div></div>
 
-<div class="hdr">
-  <div class="hdr-badge">IPA PHONETICS REFERENCE</div>
-  <h1>🎙 発音記号マスターガイド</h1>
-  <p>国際音声記号（IPA）を使って英語・タイ語・日本語の音を体系的に学ぶインタラクティブ参照ガイドです。目で見て、耳で聴いて発音を習得しましょう。</p>
-  <div class="lang-legend">
-    <span class="lang-tag"><span class="lang-dot" style="background:var(--en)"></span>🔵 英語 English</span>
-    <span class="lang-tag"><span class="lang-dot" style="background:var(--th)"></span>🟠 タイ語 Thai</span>
-    <span class="lang-tag"><span class="lang-dot" style="background:var(--ja)"></span>🟢 日本語 Japanese</span>
-  </div>
-  <div class="pkey">
-    <span><span style="color:var(--ok);font-weight:700">○</span> 存在する</span>
-    <span><span style="color:var(--no)">✕</span> 存在しない</span>
-    <span><span style="color:var(--part)">△</span> 限定的に存在</span>
-  </div>
+<div class="page-hero">
+  <div class="hero-badge">GRAMMAR MASTER GUIDE</div>
+  <h1>英語・タイ語 文法構造マスターガイド</h1>
+  <p>5文型 × 重要構文70選 × 品詞8種類 × タイ語単語2000語。S/V/O/Cカラーコーディングで語順を視覚的に学習できます。</p>
 </div>
-
-<nav class="nav">
-  <button class="nbtn active" onclick="showSec('vowels',this)">🔵 母音</button>
-  <button class="nbtn" onclick="showSec('consonants',this)">🟡 子音</button>
-  <button class="nbtn" onclick="showSec('comparison',this)">🌏 言語比較</button>
-  <button class="nbtn" onclick="showSec('thai',this)">🇹🇭 タイ語特有</button>
-  <button class="nbtn" onclick="showSec('tones',this)">🎵 タイ語声調</button>
-  <button class="nbtn" onclick="showSec('tips',this)">💡 学習のコツ</button>
-  <div class="sub-link"><a href="grammar-structures.html">📝 文法構造ガイド →</a></div>
-</nav>
 
 <div class="ctn">
 
-<!-- VOWELS -->
-<div id="vowels" class="section active">
-  <div class="sh"><div class="st">母音（Vowels）</div><div class="sd">英語・タイ語・日本語の母音を発音記号・例語・言語対応で学びます。🔊でブラウザ音声再生、📖でCambridge辞書音声を確認できます。</div></div>
-  <div class="toolbar">
-    <input class="srch" id="vsrch" placeholder="🔍 IPA記号・例語で検索..." oninput="filter('vowels')">
-    <button class="fbtn fall active" onclick="setF('vowels','all',this)">すべて</button>
-    <button class="fbtn fen" onclick="setF('vowels','en',this)">英語のみ</button>
-    <button class="fbtn fth" onclick="setF('vowels','th',this)">タイ語あり</button>
-    <button class="fbtn fja" onclick="setF('vowels','ja',this)">日本語あり</button>
-    <span class="cbadge" id="vc"></span>
-  </div>
-  <div class="grid" id="vg"></div>
+<!-- Color legend -->
+<div class="legend">
+  <span class="litem"><span class="ldot ld-s">S</span><span class="lname">主語 Subject</span></span>
+  <span class="litem"><span class="ldot ld-v">V</span><span class="lname">動詞 Verb</span></span>
+  <span class="litem"><span class="ldot ld-o">O</span><span class="lname">目的語 Object</span></span>
+  <span class="litem"><span class="ldot ld-c">C</span><span class="lname">補語 Complement</span></span>
+  <span class="litem"><span class="ldot ld-m">M</span><span class="lname">助動詞 Modal</span></span>
+  <span class="litem"><span class="ldot ld-a">副</span><span class="lname">副詞句 Adverbial</span></span>
 </div>
 
-<!-- CONSONANTS -->
-<div id="consonants" class="section">
-  <div class="sh"><div class="st">子音（Consonants）</div><div class="sd">英語・タイ語・日本語の子音を調音方法別に学びます。各言語での存在有無と発音のコツを確認できます。</div></div>
-  <div class="toolbar">
-    <input class="srch" id="csrch" placeholder="🔍 IPA記号・例語で検索..." oninput="filter('consonants')">
-    <button class="fbtn fall active" onclick="setF('consonants','all',this)">すべて</button>
-    <button class="fbtn fen" onclick="setF('consonants','en',this)">英語のみ</button>
-    <button class="fbtn fth" onclick="setF('consonants','th',this)">タイ語あり</button>
-    <button class="fbtn fja" onclick="setF('consonants','ja',this)">日本語あり</button>
-    <span class="cbadge" id="cc"></span>
-  </div>
-  <div class="grid" id="cg"></div>
-</div>
-
-<!-- COMPARISON -->
-<div id="comparison" class="section">
-  <div class="sh"><div class="st">言語別対応比較表</div><div class="sd">英語・タイ語・日本語の発音記号の存在有無を一覧で確認できます。</div></div>
-  <h3 style="margin-bottom:12px;font-size:1rem;color:var(--text-dim)">● 母音の言語比較</h3>
-  <div class="twrap"><table class="ctbl" id="vtbl"></table></div>
-  <h3 style="margin-bottom:12px;font-size:1rem;color:var(--text-dim)">● 子音の言語比較</h3>
-  <div class="twrap"><table class="ctbl" id="ctbl2"></table></div>
-</div>
-
-<!-- THAI SPECIAL -->
-<div id="thai" class="section">
-  <div class="sh"><div class="st">🇹🇭 タイ語特有の発音</div><div class="sd">英語・日本語にない、タイ語特有の音を詳しく解説します。これらがタイ語学習の最大の難関です。</div></div>
-  <div id="thg"></div>
-</div>
-
-<!-- TONES -->
-<div id="tones" class="section">
-  <div class="sh"><div class="st">🎵 タイ語の声調（วรรณยุกต์ / Tone System）</div><div class="sd">タイ語には5つの声調があり、同じ音でも高低が違うと意味が全く変わります。声調はタイ語学習の核心であり、最大の難関です。</div></div>
-  <div class="tone-overview">
-    <div class="tone-intro" style="grid-column:span 2 / auto;">
-      <h3>🔑 声調とは何か？なぜ重要か？</h3>
-      <p>タイ語は<strong style="color:var(--th)">声調言語（tone language）</strong>です。音節の音の高低パターン（ピッチ）が意味を区別します。英語や日本語では音の高低は感情や強調を表すだけですが、タイ語では<strong style="color:var(--gold)">間違えると全く別の意味になります。</strong></p>
-      <p>例：<span style="font-family:'Noto Sans Thai',sans-serif;color:var(--th)">มา</span>（来る）、<span style="font-family:'Noto Sans Thai',sans-serif;color:var(--th)">ม้า</span>（馬）、<span style="font-family:'Noto Sans Thai',sans-serif;color:var(--th)">หมา</span>（犬）── 子音と母音は同じ「マー」でも声調が違えば意味が変わる！</p>
-      <div class="warn">⚠️ 声調を無視してタイ語を話すと、意味が通じないだけでなく、全く違う意味に聞こえることがあります。発音の初期から声調と一緒に覚えることが必須です。</div>
+<!-- Demo sentences -->
+<div class="demo-box">
+  <h3>🎨 カラーコーディング デモ — 5文型の見え方</h3>
+  <div class="demo-row">
+    <div>
+      <div class="demo-sent">
+        <span class="tok tok-s">She<sup>S</sup></span> <span class="tok tok-v">is<sup>V</sup></span> <span class="tok tok-c">a teacher<sup>C</sup></span>.
+      </div>
+      <div class="demo-jp">彼女は先生だ。</div>
+      <span class="demo-badge">第2文型 S+V+C — S=C 成立（She = a teacher）</span>
     </div>
-    <div class="tone-intro">
-      <h3>📊 声調を決める3要素</h3>
-      <p>タイ語の声調は以下3つの組み合わせで決まります：</p>
-      <p>① <strong style="color:var(--gold)">子音クラス</strong>（高・中・低の3種類）<br>② <strong style="color:var(--en)">声調符号</strong>（ไม้เอก ่ / ไม้โท ้ など）<br>③ <strong style="color:var(--ok)">音節の種類</strong>（開音節／閉音節・母音の長短）</p>
-      <p style="margin-top:6px;font-size:.8rem;">最初はルールよりも<strong style="color:var(--gold)">単語ごとに声調を丸ごと覚える</strong>ことが効果的です。</p>
+    <div>
+      <div class="demo-sent">
+        <span class="tok tok-s">He<sup>S</sup></span> <span class="tok tok-v">gave<sup>V</sup></span> <span class="tok tok-o">me<sup>O₁人</sup></span> <span class="tok tok-o" style="opacity:.75">a book<sup>O₂物</sup></span>.
+      </div>
+      <div class="demo-jp">彼は私に本をくれた。</div>
+      <span class="demo-badge">第4文型 S+V+O₁+O₂ — O₁=人（me）、O₂=物（a book）</span>
+    </div>
+    <div>
+      <div class="demo-sent">
+        <span class="tok tok-s">They<sup>S</sup></span> <span class="tok tok-v">elected<sup>V</sup></span> <span class="tok tok-o">him<sup>O</sup></span> <span class="tok tok-c">president<sup>C</sup></span>.
+      </div>
+      <div class="demo-jp">彼らは彼を大統領に選んだ。</div>
+      <span class="demo-badge">第5文型 S+V+O+C — O=C 成立（him = president）</span>
+    </div>
+    <div>
+      <div class="demo-sent">
+        <span class="tok tok-s">I<sup>S</sup></span> <span class="tok tok-m">should<sup>M</sup></span> <span class="tok tok-v">study<sup>V</sup></span> hard so that <span class="tok tok-s">I<sup>S</sup></span> <span class="tok tok-m">can<sup>M</sup></span> <span class="tok tok-v">pass<sup>V</sup></span>.
+      </div>
+      <div class="demo-jp">合格できるように一生懸命勉強する。（構文 #34 so that）</div>
+      <span class="demo-badge">助動詞 M は紫で表示</span>
     </div>
   </div>
-
-  <h3 style="margin-bottom:14px;font-size:1rem;color:var(--text-dim)">● タイ語5声調 — 種類・特徴・例語</h3>
-  <div class="tone5-grid" id="tone5g"></div>
-
-  <h3 style="margin-bottom:14px;font-size:1rem;color:var(--text-dim)">● ピッチの動き — 5声調の比較</h3>
-  <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:20px;margin-bottom:28px;">
-    <svg id="pitch-svg" viewBox="0 0 700 130" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;"></svg>
-    <div style="display:flex;justify-content:center;gap:18px;flex-wrap:wrap;margin-top:12px;font-size:.78rem;">
-      <span style="color:var(--text-dim)">━ สามัญ（中）</span>
-      <span style="color:#9898f5">━ เอก（低）</span>
-      <span style="color:#e07878">━ โท（下降）</span>
-      <span style="color:var(--gold)">━ ตรี（高）</span>
-      <span style="color:var(--ok)">━ จัตวา（上昇）</span>
-    </div>
-  </div>
-
-  <h3 style="margin-bottom:14px;font-size:1rem;color:var(--text-dim)">● 子音クラス（อักษร 3 หมู่）— 声調の基準</h3>
-  <div class="cls-grid" id="cls-grid"></div>
-
-  <h3 style="margin-bottom:14px;font-size:1rem;color:var(--text-dim)">● 声調決定ルール早見表</h3>
-  <p style="font-size:.82rem;color:var(--text-dim);margin-bottom:12px;">子音クラス × 声調符号 × 音節タイプで声調が決まります。まず「高クラス・無符号・開音節 = 上昇調」のような代表パターンを覚えましょう。</p>
-  <div class="trule-wrap">
-    <table class="trule-tbl">
-      <thead><tr>
-        <th>子音クラス</th>
-        <th>符号なし<br>（開音節）</th>
-        <th>符号なし<br>（閉音節・短母音）</th>
-        <th>ไม้เอก ่</th>
-        <th>ไม้โท ้</th>
-        <th>ไม้ตรี ๊</th>
-        <th>ไม้จัตวา ๋</th>
-      </tr></thead>
-      <tbody>
-        <tr>
-          <td><span class="cls-badge cls-m" style="padding:3px 10px;border-radius:100px;font-size:.75rem;font-weight:700">中クラス</span></td>
-          <td><span class="t-mid">中（สามัญ）</span></td>
-          <td><span class="t-low">低（เอก）</span></td>
-          <td><span class="t-low">低（เอก）</span></td>
-          <td><span class="t-fall">下降（โท）</span></td>
-          <td><span class="t-high">高（ตรี）</span></td>
-          <td><span class="t-rise">上昇（จัตวา）</span></td>
-        </tr>
-        <tr>
-          <td><span class="cls-badge cls-h" style="padding:3px 10px;border-radius:100px;font-size:.75rem;font-weight:700">高クラス</span></td>
-          <td><span class="t-rise">上昇（จัตวา）</span></td>
-          <td><span class="t-low">低（เอก）</span></td>
-          <td><span class="t-low">低（เอก）</span></td>
-          <td><span class="t-fall">下降（โท）</span></td>
-          <td>—</td>
-          <td>—</td>
-        </tr>
-        <tr>
-          <td><span class="cls-badge cls-l" style="padding:3px 10px;border-radius:100px;font-size:.75rem;font-weight:700">低クラス</span></td>
-          <td><span class="t-mid">中（สามัญ）</span></td>
-          <td><span class="t-high">高（ตรี）</span></td>
-          <td><span class="t-fall">下降（โท）</span></td>
-          <td><span class="t-high">高（ตรี）</span></td>
-          <td>—</td>
-          <td>—</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h3 style="margin-bottom:14px;font-size:1rem;color:var(--text-dim)">● 最小対（Minimal Pairs）— 声調だけで意味が変わる！</h3>
-  <p style="font-size:.82rem;color:var(--text-dim);margin-bottom:14px;">同じ子音・母音でも声調が異なると全く別の単語になります。これらを繰り返し練習することで声調感覚が身につきます。</p>
-  <div class="pair-grid" id="pair-grid"></div>
-
-  <h3 style="margin-bottom:14px;font-size:1rem;color:var(--text-dim)">💡 声調習得のコツ・記憶術</h3>
-  <div class="mne-grid" id="mne-grid"></div>
-
-  <div class="tone-quiz">
-    <h3>🧪 声調クイズ（練習）</h3>
-    <p style="font-size:.82rem;color:var(--text-dim);margin-bottom:16px;">次のタイ語単語の声調を選んでください。</p>
-    <div id="quiz-container"></div>
-    <button onclick="resetQuiz()" style="margin-top:14px;padding:8px 20px;background:var(--th-bg);border:1px solid var(--th);color:var(--th);border-radius:100px;cursor:pointer;font-family:inherit;font-size:.83rem;font-weight:600;transition:all .18s;">🔄 もう一度</button>
-  </div>
 </div>
 
-
-<div id="tips" class="section">
-  <div class="sh"><div class="st">💡 学習のコツ</div><div class="sd">言語別の発音特徴と、よくある混乱ポイント・学習ストラテジーを整理しました。</div></div>
-  <div class="tgrid" id="tipg"></div>
+<div class="sec-head">📂 ファイル一覧</div>
+<div class="idx-grid">
+  <a class="idx-card" href="grammar-5patterns.html">
+    <span class="idx-ic">📐</span>
+    <div class="idx-title">5文型（S/V/O/Cカラー解析付き）</div>
+    <div class="idx-sub">第1〜第5文型を例文のS・V・O・Cカラーラベル付きで解説。インタラクティブ文型解析ツール搭載。</div>
+    <div class="idx-tags"><span class="idx-tag t-en">第1〜5文型</span><span class="idx-tag t-g">カラー解析</span><span class="idx-tag t-v">解析ツール</span></div>
+    <div class="idx-note">→ grammar-5patterns.html</div>
+  </a>
+  <a class="idx-card" href="grammar-constructs-A.html">
+    <span class="idx-ic">📝</span>
+    <div class="idx-title">重要構文 #1〜35（前半）</div>
+    <div class="idx-sub">助動詞系・不定詞/動名詞・比較・条件/仮定・接続/理由の構文35個。全例文にS/V/O/Cカラー付き。</div>
+    <div class="idx-tags"><span class="idx-tag t-th">助動詞</span><span class="idx-tag t-ja">不定詞</span><span class="idx-tag t-g">比較</span></div>
+    <div class="idx-note">→ grammar-constructs-A.html</div>
+  </a>
+  <a class="idx-card" href="grammar-constructs-B.html">
+    <span class="idx-ic">📝</span>
+    <div class="idx-title">重要構文 #36〜70（後半）</div>
+    <div class="idx-sub">接続詞・受動態・時制・仮定法・関係詞など発展的な構文35個。全例文にS/V/O/Cカラー付き。</div>
+    <div class="idx-tags"><span class="idx-tag t-en">受動態</span><span class="idx-tag t-th">時制</span><span class="idx-tag t-v">仮定法</span></div>
+    <div class="idx-note">→ grammar-constructs-B.html</div>
+  </a>
+  <a class="idx-card" href="grammar-pos-tips.html">
+    <span class="idx-ic">🏷</span>
+    <div class="idx-title">品詞8種 + 学習のコツ</div>
+    <div class="idx-sub">名詞・動詞・形容詞など8品詞を例文付きで解説。英語・タイ語の構造比較、日本人がよくやるミスTOP8も収録。</div>
+    <div class="idx-tags"><span class="idx-tag t-g">品詞8種</span><span class="idx-tag t-en">学習tips</span></div>
+    <div class="idx-note">→ grammar-pos-tips.html</div>
+  </a>
+  <a class="idx-card" href="ipa-phonetics.html">
+    <span class="idx-ic">🎙</span>
+    <div class="idx-title">発音記号マスターガイド（IPA）</div>
+    <div class="idx-sub">英語・タイ語・日本語のIPA発音記号を音声付きで学習。タイ語声調5種も詳細解説。</div>
+    <div class="idx-tags"><span class="idx-tag t-en">英語</span><span class="idx-tag t-th">タイ語声調</span><span class="idx-tag t-ja">日本語</span></div>
+    <div class="idx-note">→ ipa-phonetics.html</div>
+  </a>
 </div>
 
-</div><!-- /ctn -->
-
-<script>
-// ── DATA ──────────────────────────────────────
-
-const V=[
-  {s:'/iː/',w:'see',k:'シー',u:'https://dictionary.cambridge.org/dictionary/english/see',nm:'前舌・高・非円唇（長母音）',tips:'長く高めの「イ」。口を横に引いて力強く伸ばす。タイ語「อี」・日本語「い」に近いが、より緊張した音。英語では必ず長く伸ばすことが重要。',en:'○',th:'○',ja:'○',ee:'see, feed, beach',te:'อี',je:'い'},
-  {s:'/ɪ/',w:'sit',k:'スィット',u:'https://dictionary.cambridge.org/dictionary/english/sit',nm:'前舌・半高・非円唇（短母音）',tips:'短い緩やかな「イ」。「エ」と「イ」の中間。力を抜いてリラックスして発音。英語特有の短母音。sit vs seat で意味が変わる！',en:'○',th:'✕',ja:'✕',ee:'sit, hit, bill, fish',te:'—',je:'—'},
-  {s:'/e/',w:'pen',k:'ペン',u:'https://dictionary.cambridge.org/dictionary/english/pen',nm:'前舌・中高・非円唇',tips:'やや口を開けた「エ」。日本語の「え」より少し広め。タイ語「เ」との共通音。比較的発音しやすい音。',en:'○',th:'○',ja:'○',ee:'pen, bed, red',te:'เ',je:'え'},
-  {s:'/ɛ/',w:'get',k:'ゲット',u:'https://dictionary.cambridge.org/dictionary/english/get',nm:'前舌・中低・非円唇',tips:'「エ」より口を大きく開ける。「エ」と「ア」の中間。タイ語「แ」の音。日本語には限定的にのみ存在（方言など）。',en:'○',th:'○',ja:'△',ee:'get, bed, said',te:'แ',je:'（限定的）'},
-  {s:'/æ/',w:'cat',k:'キャット',u:'https://dictionary.cambridge.org/dictionary/english/cat',nm:'前舌・低・非円唇',tips:'「ア」と「エ」の中間。口を縦に大きく開ける。英語学習者が最も苦手な音の一つ。「キャット」より「ク゛ぇット」に近い感覚で。',en:'○',th:'✕',ja:'✕',ee:'cat, man, bad, hat',te:'—',je:'—'},
-  {s:'/ɑː/',w:'car',k:'カー',u:'https://dictionary.cambridge.org/dictionary/english/car',nm:'後舌・低・非円唇（長母音）',tips:'深く長い「アー」。喉の奥で大きく響かせる。タイ語「อา」・日本語「あ」に近い。口を最大に開けるイメージ。',en:'○',th:'○',ja:'○',ee:'car, father, palm',te:'อา',je:'あ'},
-  {s:'/ʌ/',w:'cup',k:'カップ',u:'https://dictionary.cambridge.org/dictionary/english/cup',nm:'中舌・中低・非円唇',tips:'曖昧な「ア」。口をあまり開けずリラックスして発音。強勢のある音節で使用。cup, but, love などで使われる英語特有の音。',en:'○',th:'✕',ja:'✕',ee:'cup, but, love, fun',te:'—',je:'—'},
-  {s:'/ɒ/',w:'hot',k:'ホット',u:'https://dictionary.cambridge.org/dictionary/english/hot',nm:'後舌・低・円唇（British）',tips:'イギリス英語の短い「オ」。口を少し丸めて開く。アメリカ英語では/ɑ/に近い音になる。hot, lot, topなどで使用。',en:'○',th:'✕',ja:'✕',ee:'hot, lot, top（英）',te:'—',je:'—'},
-  {s:'/ɔː/',w:'ball',k:'ボール',u:'https://dictionary.cambridge.org/dictionary/english/ball',nm:'後舌・中低・円唇（長母音）',tips:'深く長い「オー」。口をしっかり丸めて後ろで発音。タイ語「ออ」に似た音。ball, law, thoughtなどで使用。',en:'○',th:'○',ja:'✕',ee:'ball, law, thought',te:'ออ',je:'—'},
-  {s:'/ʊ/',w:'book',k:'ブック',u:'https://dictionary.cambridge.org/dictionary/english/book',nm:'後舌・半高・円唇（短母音）',tips:'短い緩やかな「ウ」。唇を軽くすぼめる。/uː/より緊張が弱い。book vs food の区別が重要。英語特有の短母音。',en:'○',th:'✕',ja:'✕',ee:'book, cook, good, put',te:'—',je:'—'},
-  {s:'/uː/',w:'food',k:'フード',u:'https://dictionary.cambridge.org/dictionary/english/food',nm:'後舌・高・円唇（長母音）',tips:'長い「ウー」。口をしっかりすぼめる。タイ語「อู」・日本語「う」に近いが、より円唇で緊張した音。food, moon, blueなどで使用。',en:'○',th:'○',ja:'○',ee:'food, moon, blue',te:'อู',je:'う'},
-  {s:'/ə/',w:'ago',k:'アゴウ',u:'https://dictionary.cambridge.org/dictionary/english/ago',nm:'中舌・中・非円唇（シュワー）',tips:'力を抜いた「あいまい母音（シュワー）」。英語で最もよく使われる母音！強勢のない音節に現れる。about, the, betterの第2音節など至る所に登場。',en:'○',th:'△',ja:'✕',ee:'ago, about, butter, the',te:'เออะ（限定）',je:'—'},
-  {s:'/o/',w:'go',k:'ゴウ',u:'https://dictionary.cambridge.org/dictionary/english/go',nm:'後舌・中高・円唇',tips:'後舌の「オ」。英語では二重母音/oʊ/に変化することが多い。タイ語「โอ」・日本語「お」と共通の音素。',en:'○',th:'○',ja:'○',ee:'go, so, home',te:'โอ',je:'お'},
-  {s:'/ɔ/',w:'law',k:'ロー',u:'https://dictionary.cambridge.org/dictionary/english/law',nm:'後舌・中低・円唇（短）',tips:'円唇の「オ」。タイ語に存在するが日本語にはない。英語の/ɔː/の短母音版。法律(law)や思考(thought)などに使われる音。',en:'○',th:'○',ja:'✕',ee:'law, thought, off',te:'อ',je:'—'},
-  {s:'/ɯ/',w:'—',k:'（タイ語特有）',u:null,nm:'後舌・高・非円唇（タイ語特有）',tips:'舌を後ろに引いて唇を丸めない「ウ」音。英語・日本語には存在しない。タイ語学習最大の難関。口の形は「イ」、舌の位置は「ウ」のイメージで練習。',en:'✕',th:'○',ja:'✕',ee:'—',te:'คือ (khɯː)',je:'—'},
-  {s:'/ʉ/',w:'—',k:'（タイ語特有）',u:null,nm:'中舌・高・円唇（タイ語特有）',tips:'/ɯ/に似ているが唇をやや丸める。タイ語の一部語彙に現れる特殊な母音。英語・日本語に対応する音がない。',en:'✕',th:'○',ja:'✕',ee:'—',te:'（外来語など）',je:'—'},
-];
-
-const C=[
-  {s:'/p/',w:'pen',k:'ペン',u:'https://dictionary.cambridge.org/dictionary/english/pen',nm:'無声両唇破裂音',tips:'唇を閉じて「プッ」と破裂させる。英日タイ共通の基本音。英語では語頭で強い息（有気音）が伴う。タイ語「ป」・日本語「ぱ行」に対応。',en:'○',th:'○',ja:'○',ee:'pen, pin, cap',te:'ปลา',je:'ぱ'},
-  {s:'/b/',w:'bed',k:'ベッド',u:'https://dictionary.cambridge.org/dictionary/english/bed',nm:'有声両唇破裂音',tips:'声帯を震わせながら「ブッ」。英語はどの位置でも使う。タイ語は語中のみ（語頭はɓという別の音）。日本語にはない音。',en:'○',th:'△（語中）',ja:'✕',ee:'bed, ball, rob',te:'（語中のみ）',je:'—'},
-  {s:'/t/',w:'top',k:'トップ',u:'https://dictionary.cambridge.org/dictionary/english/top',nm:'無声歯茎破裂音',tips:'舌先を上歯茎に当てて「トッ」。英日タイ共通。語頭では有気音（息が強い）。タイ語「ต」・日本語「た行」に対応。',en:'○',th:'○',ja:'○',ee:'top, ten, it',te:'เต่า',je:'た'},
-  {s:'/d/',w:'dog',k:'ドッグ',u:'https://dictionary.cambridge.org/dictionary/english/dog',nm:'有声歯茎破裂音',tips:'声ありの「ドッ」。英語はどの位置でも使う。タイ語は限定的。日本語の「だ行」は近いが異なる音。',en:'○',th:'△',ja:'✕',ee:'dog, did, and',te:'（限定的）',je:'—'},
-  {s:'/k/',w:'cat',k:'キャット',u:'https://dictionary.cambridge.org/dictionary/english/cat',nm:'無声軟口蓋破裂音',tips:'舌の奥を軟口蓋に当てて「クッ」。英日タイ共通。語頭では有気音。タイ語「ก」・日本語「か行」に対応。',en:'○',th:'○',ja:'○',ee:'cat, car, book',te:'ไก่',je:'か'},
-  {s:'/g/',w:'go',k:'ゴウ',u:'https://dictionary.cambridge.org/dictionary/english/go',nm:'有声軟口蓋破裂音',tips:'声ありの「グッ」。英語はどの位置でも。タイ語は限定的。日本語の「が行」は近いが鼻音化することがある（鼻濁音）。',en:'○',th:'△',ja:'✕',ee:'go, get, big',te:'（限定的）',je:'—'},
-  {s:'/ʔ/',w:'uh-oh',k:'声門閉鎖',u:null,nm:'声門閉鎖音',tips:'声帯を一瞬完全に閉じる音。タイ語では子音がない語頭に必ず現れる重要な音。英語では「uh-oh」の中間。日本語の「あっ！」の前の音に近い感覚。',en:'△',th:'○',ja:'✕',ee:'uh-oh（英方言）',te:'อะไร',je:'—'},
-  {s:'/m/',w:'man',k:'マン',u:'https://dictionary.cambridge.org/dictionary/english/man',nm:'両唇鼻音',tips:'唇を閉じ鼻から音を通す。英日タイ共通で最も基本的な鼻音。日本語「ま行」・タイ語「ม」に対応。誰でも発音しやすい音。',en:'○',th:'○',ja:'○',ee:'man, name, him',te:'ม้า',je:'ま'},
-  {s:'/n/',w:'net',k:'ネット',u:'https://dictionary.cambridge.org/dictionary/english/net',nm:'歯茎鼻音',tips:'舌先を上歯茎に当てて鼻から音を通す。英日タイ共通。語末の「ん」音に相当することが多い。日本語「な行」に対応。',en:'○',th:'○',ja:'○',ee:'net, name, bin',te:'นา',je:'な'},
-  {s:'/ŋ/',w:'sing',k:'スィング',u:'https://dictionary.cambridge.org/dictionary/english/sing',nm:'軟口蓋鼻音',tips:'鼻に抜ける「ン」。英語では語尾のみ（-ng, -nk）。タイ語は語頭にも来る（例：งู=蛇）。日本語の「ん」の一種として存在。',en:'○',th:'○',ja:'✕',ee:'sing, king, long',te:'งู',je:'—（「ん」の一種）'},
-  {s:'/f/',w:'fish',k:'フィッシュ',u:'https://dictionary.cambridge.org/dictionary/english/fish',nm:'無声唇歯摩擦音',tips:'上歯を下唇に当てて「フッ」と息を出す。英語・タイ語にある。日本語の「ふ（/ɸ/）」とは異なる。日本人は「は」にならないよう注意。',en:'○',th:'○',ja:'✕',ee:'fish, fun, off',te:'ฟัน',je:'—'},
-  {s:'/v/',w:'van',k:'ヴァン',u:'https://dictionary.cambridge.org/dictionary/english/van',nm:'有声唇歯摩擦音',tips:'/f/に声を加えた「ヴ」。英語では重要な音（very, love, haveなど）。日本人は「バ」と発音しがちだが、上歯を下唇に当てて声を出す点が違う。',en:'○',th:'△',ja:'✕',ee:'van, very, love',te:'—',je:'—'},
-  {s:'/θ/',w:'think',k:'スィンク',u:'https://dictionary.cambridge.org/dictionary/english/think',nm:'無声歯摩擦音',tips:'舌先を上下の歯に軽く当てて息を出す「ス」に近い音。英語特有。日本人は「s」や「t」と混同しやすい。think, three, mathで使われる。',en:'○',th:'✕',ja:'✕',ee:'think, three, math',te:'—',je:'—'},
-  {s:'/ð/',w:'this',k:'ズィス',u:'https://dictionary.cambridge.org/dictionary/english/this',nm:'有声歯摩擦音',tips:'/θ/に声を加えた音。舌先を歯に当てて「ズ」。this, that, the, there など基本語で頻繁に使用。英語特有の音。',en:'○',th:'✕',ja:'✕',ee:'this, that, the',te:'—',je:'—'},
-  {s:'/s/',w:'sun',k:'サン',u:'https://dictionary.cambridge.org/dictionary/english/sun',nm:'無声歯茎摩擦音',tips:'歯の隙間から息を出す「ス」。英日タイ共通。日本語の「さ行」・タイ語「ซ/ส」に対応。非常に頻出の音。',en:'○',th:'○',ja:'○',ee:'sun, see, bus',te:'ซิ้ง',je:'さ'},
-  {s:'/z/',w:'zoo',k:'ズー',u:'https://dictionary.cambridge.org/dictionary/english/zoo',nm:'有声歯茎摩擦音',tips:'/s/に声を加えた「ズ」。英語では重要な音（please→/z/、is→/z/など）。タイ語・日本語には通常ない。',en:'○',th:'✕',ja:'✕',ee:'zoo, is, rise',te:'—',je:'—'},
-  {s:'/ʃ/',w:'she',k:'シー',u:'https://dictionary.cambridge.org/dictionary/english/she',nm:'無声後部歯茎摩擦音',tips:'舌を奥に引いて「シー」。英語の「sh」音。タイ語に外来語で限定的に存在。日本語の「し（sh）」に近いが、より口を前に突き出す。',en:'○',th:'△',ja:'✕',ee:'she, fish, station',te:'（外来語）',je:'—'},
-  {s:'/ʒ/',w:'vision',k:'ヴィジョン',u:'https://dictionary.cambridge.org/dictionary/english/vision',nm:'有声後部歯茎摩擦音',tips:'/ʃ/に声を加えた音「ジュ」。英語のvision, measure, usualなどで使用。英語でも頻度は低め。タイ語・日本語にはない。',en:'○',th:'✕',ja:'✕',ee:'vision, measure, beige',te:'—',je:'—'},
-  {s:'/tʃ/',w:'check',k:'チェック',u:'https://dictionary.cambridge.org/dictionary/english/check',nm:'無声後部歯茎破擦音',tips:'「チ」と「シュ」の間の音。/t/+/ʃ/の合体。英語の「ch」音。check, child, watchなどで使用。日本語の「ち」に近いが口の形が異なる。',en:'○',th:'✕',ja:'✕',ee:'check, child, watch',te:'—',je:'—'},
-  {s:'/dʒ/',w:'jam',k:'ジャム',u:'https://dictionary.cambridge.org/dictionary/english/jam',nm:'有声後部歯茎破擦音',tips:'「ジ」と「ャ」の間。/d/+/ʒ/の合体。英語の「j」音・「g」（gentle）など。日本語の「じ」に近い。',en:'○',th:'✕',ja:'✕',ee:'jam, job, age',te:'—',je:'—'},
-  {s:'/h/',w:'hat',k:'ハット',u:'https://dictionary.cambridge.org/dictionary/english/hat',nm:'無声声門摩擦音',tips:'息だけで「ハッ」。英日タイ共通。タイ語「ห」・日本語「は行」に対応。声帯を振動させないのがポイント。',en:'○',th:'○',ja:'○',ee:'hat, home, help',te:'หมา',je:'は'},
-  {s:'/l/',w:'leg',k:'レッグ',u:'https://dictionary.cambridge.org/dictionary/english/leg',nm:'歯茎側面接近音',tips:'舌先を上歯茎に当てて声を側面から通す「ル」。英語・タイ語にあり。日本語にはない（ら行は異なる/ɾ/）。タイ語「ล」に対応。',en:'○',th:'○',ja:'✕',ee:'leg, love, ball',te:'ลิง',je:'—'},
-  {s:'/r/ /ɹ/',w:'red',k:'レッド',u:'https://dictionary.cambridge.org/dictionary/english/red',nm:'有声歯茎接近音（英語のr）',tips:'舌を軽く巻く英語特有の「ル」音。タイ語・日本語のrとは全く異なる。舌先を口蓋に触れさせないのがポイント。日本人が最も苦手な音の一つ。',en:'○',th:'✕',ja:'✕',ee:'red, run, car',te:'—',je:'—'},
-  {s:'/ɾ/',w:'（ら行）',k:'ら行',u:null,nm:'歯茎弾き音（日本語のら行）',tips:'舌先を一瞬歯茎に当てる「弾き音」。日本語の「ら・り・る・れ・ろ」。英語の/r/でも/l/でもない。英語・タイ語には存在しない、日本語特有の音。',en:'✕',th:'✕',ja:'○',ee:'—',te:'—',je:'ら行'},
-  {s:'/j/',w:'yes',k:'イエス',u:'https://dictionary.cambridge.org/dictionary/english/yes',nm:'硬口蓋接近音',tips:'「イ」に近い摩擦のない「ヤ」音。英日タイ共通。日本語「や行」・タイ語「ย」に対応。英語のyouth, you, yearなどで使用。',en:'○',th:'○',ja:'○',ee:'yes, you, year',te:'อยู่',je:'や'},
-  {s:'/w/',w:'we',k:'ウィー',u:'https://dictionary.cambridge.org/dictionary/english/we',nm:'両唇接近音',tips:'「ウ」と「ア」の中間から「ウ」を経由する音。唇をすぼめて「ワ」。英日タイ共通。日本語「わ行」・タイ語「ว」に対応。',en:'○',th:'○',ja:'○',ee:'we, wet, swim',te:'วัว',je:'わ'},
-];
-
-const TH=[
-  {s:'/ɯ/',tp:'後舌高非円唇母音',ex:'คือ /kʰɯː/',mn:'〜である',desc:'英語・日本語に存在しない、タイ語特有の母音。舌を奥に引き、唇を丸めずに発音する「ウ」音。「イ」の口の形で「ウ」を言うイメージ。',tip:'【練習法】まず「う」を言いながら、唇を横に引いてみる。鏡で確認しながら「い」と「う」の中間の口の形を探す。'},
-  {s:'/ʉ/',tp:'中舌高円唇母音',ex:'（外来語など）',mn:'—',desc:'/ɯ/に似ているが唇をやや丸める母音。タイ語の一部語彙に現れる特殊な音。英語にも日本語にも対応する音がない。',tip:'【練習法】「ウ」と言いながら舌を中央に保ち、唇を軽く丸める感覚で。'},
-  {s:'/ɓ/',tp:'有声両唇入破裂音',ex:'บาน /ɓaːn/',mn:'家',desc:'声帯を震わせながら軟口蓋を閉じて発音する「バ」系の音。英語・日本語にはない。声帯を閉めながら声を出すため独特の質感がある。タイ語「บ」はこの音。',tip:'【注意】英語の/b/とは発音機序が異なる。喉を閉めながら「ば」と発音する練習を。'},
-  {s:'/ɗ/',tp:'有声歯茎入破裂音',ex:'ดิน /ɗin/',mn:'土',desc:'/d/よりも有声性が強い、舌先を歯茎に当てて発音するタイ語特有の「ダ」音。英語・日本語にはない音。タイ語「ด」はこの音。',tip:'【注意】英語の/d/より喉に引っかかる感覚がある。タイ語話者の「ด」を何度も聞いて真似るのが効果的。'},
-  {s:'/ʔ/',tp:'声門閉鎖音',ex:'อะไร /ʔà.rāj/',mn:'何',desc:'声帯を一瞬完全に閉じる音。タイ語では子音で始まらない単語の語頭に必ず現れる。英語では「uh-oh」の中間音。日本語ではほぼ意識されない。',tip:'【練習法】「あ」と言う前に一瞬息を止める感覚。「あっ！」という驚きの「あ」の前の閉鎖が近い。'},
-  {s:'/pʰ/',tp:'無声有気両唇破裂音',ex:'ผา /pʰǎː/',mn:'崖',desc:'息を強く伴う「パ」音。タイ語では/p/と/pʰ/が意味の違いを作る対立音素。日本語では区別なし。英語の語頭/p/も有気音だが、タイ語はより顕著な区別をする。',tip:'【見分け方】紙を口の前に置いて発音。紙が大きく揺れれば有気音。「ผ/พ」が有気音、「ป」が無気音。'},
-  {s:'/tʰ/',tp:'無声有気歯茎破裂音',ex:'ถุง /tʰǔŋ/',mn:'袋',desc:'強い息を伴う「タ」音。タイ語で/t/と/tʰ/は意味を区別する重要な対立。日本語の「た」では区別しない。',tip:'【見分け方】「た」と言って息の強さを変えてみる。「ถ/ท」が有気音、「ต」が無気音。'},
-  {s:'/kʰ/',tp:'無声有気軟口蓋破裂音',ex:'ขา /kʰǎː/',mn:'脚',desc:'息を強く伴う「カ」音。タイ語で/k/と/kʰ/は意味を区別する対立音素。日本語・英語では意味区別に使わない。',tip:'【見分け方】「か」と言って息を強く出す練習。「ข/ค」が有気音、「ก」が無気音。'},
-];
-
-const TIPS=[
-  {ic:'🔵',tl:'英語の発音で注意すべき点',items:[
-    '<strong>/æ/（cat）</strong>：日本人が最も苦手。「ア」と「エ」の中間で口を縦に大きく開ける。',
-    '<strong>/ə/（シュワー）</strong>：英語で最も頻出の母音。力を抜いて曖昧に発音。aboutの"a"、betterの"er"など。',
-    '<strong>/ɪ/（sit）vs /iː/（see）</strong>：日本語では両方「イ」だが英語では意味が異なる。sit/seat、ship/sheepなど。',
-    '<strong>/θ/（think）vs /s/（sun）</strong>：舌を歯に当てるかどうかで区別。thinkは必ず舌を歯に！',
-    '<strong>/l/ vs /r/</strong>：lは舌先を歯茎に当てる。rは舌を巻いて歯茎に触れない。',
-    '<strong>/v/（van）vs /b/（ban）</strong>：vは上歯を下唇に当てる。bは唇を閉じる。',
-  ]},
-  {ic:'🟠',tl:'タイ語の発音で注意すべき点',items:[
-    '<strong>有気音 vs 無気音</strong>：/p/ vs /pʰ/、/t/ vs /tʰ/、/k/ vs /kʰ/。意味が変わる重要な区別！',
-    '<strong>/ɯ/（คือ）</strong>：英語・日本語にない音。唇を横に引いて「ウ」を発音する。最大の難関の一つ。',
-    '<strong>声門閉鎖音/ʔ/</strong>：語頭に子音がない単語で自動的に現れる。意識して発音を。',
-    '<strong>声調（5つの声調）</strong>：同じ発音でも高低で意味が全く変わる。声調記号をセットで学習。',
-    '<strong>語末の未解放音</strong>：タイ語では/p/,/t/,/k/が語末に来ると破裂せずに終わる（未解放閉鎖音）。',
-  ]},
-  {ic:'🟢',tl:'日本語話者のための学習戦略',items:[
-    '<strong>日本語にない音を重点練習</strong>：/æ/, /ɪ/, /ʊ/, /θ/, /ð/, /v/, /z/, /ʒ/, /l/, /r/は特に練習が必要。',
-    '<strong>音節構造の違い</strong>：英語は子音が連続できる（str-, -nds）。日本語はほぼCV（子音＋母音）構造。',
-    '<strong>IPAを覚えると有利</strong>：英語・タイ語どちらの辞書でもIPA記号で正確な発音が確認できる。',
-    '<strong>タイ語のら行問題</strong>：タイ語の「ร」は日本語の「ら行」/ɾ/に近い。英語の/r/とは違う。',
-    '<strong>毎日の音読練習</strong>：IPA記号を見ながら音読し、口の筋肉を鍛える。',
-  ]},
-  {ic:'📚',tl:'効果的な学習リソース',items:[
-    '<strong>Cambridge Dictionary</strong>：各単語のIPA記号と音声を確認できる（カードの📖リンク）。',
-    '<strong>Web Speech API</strong>：ブラウザ内蔵の音声合成。🔊ボタンで発音確認（音質はブラウザ依存）。',
-    '<strong>Forvo.com</strong>：ネイティブスピーカーが録音した発音辞典。タイ語の確認にも有効。',
-    '<strong>IPA Chart</strong>：<a href="https://www.ipachart.com" target="_blank">ipachart.com</a>でIPA全音の音声を確認可能。',
-    '<strong>Google翻訳の音声機能</strong>：タイ語のTTS品質が高く、発音確認に使える。',
-  ]},
-  {ic:'🎯',tl:'よくある間違いと修正法',items:[
-    '<strong>「can」→「カン」</strong>：「キャン」に近く、口を縦に開けて「ク゛ぁン」のイメージで。',
-    '<strong>「three」→「スリー」</strong>：舌を歯に当てたまま/r/へ移行する練習を。',
-    '<strong>英語の/r/→「ル」</strong>：舌を巻いて浮かせる。歯茎に触れないのがポイント。',
-    '<strong>タイ語の声調を無視</strong>：สี（色）とศรี（名前）は声調が違う。声調は単語の一部として覚える。',
-    '<strong>シュワー/ə/の省略</strong>：英語の弱音節は省略せず、曖昧母音として必ず発音する。',
-  ]},
-  {ic:'🔤',tl:'IPA記号の読み方基礎',items:[
-    '<strong>「/」スラッシュ</strong>：音素表記。音の「種類」を表す。/p/はpの音素。',
-    '<strong>「ː」コロン</strong>：長音記号。/iː/は長い「イ」。/uː/は長い「ウ」。',
-    '<strong>「ˈ」第一強勢</strong>：強く読む音節の前につく。/ˈwɪndoʊ/ → WIN-dow。',
-    '<strong>「ˌ」第二強勢</strong>：2番目に強い音節の前につく。',
-    '<strong>「̃」鼻音化</strong>：鼻から音が抜けることを示す。フランス語などでよく使われる。',
-  ]},
-];
-
-// ── STATE ──────────────────────────────────
-const LF={vowels:'all',consonants:'all'};
-
-// ── HELPERS ────────────────────────────────
-const sc=s=>s==='○'?'ok':s==='✕'?'no':'part';
-const st=s=>s==='○'?'○ あり':s==='✕'?'✕ なし':'△ 限定';
-
-function renderCard(d){
-  const dict=d.u?`<a class="bc bdict" href="${d.u}" target="_blank" title="Cambridge辞書で音声確認">📖</a>`:'';
-  const spk=d.w&&d.w!=='—'?`<button class="bc bspeak" onclick="speak('${d.w}','en-US',this)" title="英語で発音">🔊</button>`:'';
-  const exs=[
-    d.ee&&d.ee!=='—'?`<span class="ext ene">EN: ${d.ee}</span>`:'',
-    d.te&&d.te!=='—'?`<span class="ext the">TH: ${d.te}</span>`:'',
-    d.je&&d.je!=='—'?`<span class="ext jae">JA: ${d.je}</span>`:'',
-  ].filter(Boolean).join('');
-  return`<div class="card" data-s="${d.s}" data-w="${d.w||''}" data-en="${d.en}" data-th="${d.th}" data-ja="${d.ja}">
-    <div class="ctop"><div class="isym">${d.s}</div><div class="cbtns">${spk}${dict}</div></div>
-    ${d.w&&d.w!=='—'?`<div class="cword">${d.w}</div>`:''}
-    ${d.k&&!d.k.includes('特有')?`<div class="ckana">${d.k}</div>`:''}
-    <div class="cname">${d.nm}</div>
-    <div class="ctips">💬 ${d.tips}</div>
-    ${exs?`<div class="cex">${exs}</div>`:''}
-    <div class="lrow">
-      <div class="lchip ${sc(d.en)}"><span class="cl">英語</span>${st(d.en)}</div>
-      <div class="lchip ${sc(d.th)}"><span class="cl">タイ語</span>${st(d.th)}</div>
-      <div class="lchip ${sc(d.ja)}"><span class="cl">日本語</span>${st(d.ja)}</div>
-    </div></div>`;
-}
-
-function renderGrid(id,data,cid){
-  document.getElementById(id).innerHTML=data.map(renderCard).join('');
-  upd(cid,id);
-}
-
-function upd(cid,gid){
-  const n=document.querySelectorAll(`#${gid} .card:not(.hidden)`).length;
-  document.getElementById(cid).textContent=`${n} 件表示中`;
-}
-
-function renderTbl(tid,data){
-  document.getElementById(tid).innerHTML=`<thead><tr>
-    <th>IPA記号</th><th>例語・備考</th>
-    <th class="enh">🔵 英語</th><th class="thh">🟠 タイ語</th><th class="jah">🟢 日本語</th>
-    <th>音の説明</th></tr></thead><tbody>
-    ${data.map(d=>`<tr>
-      <td class="ic">${d.s}</td>
-      <td style="font-size:.8rem;color:var(--text-dim)">${[d.ee,d.te,d.je].filter(x=>x&&x!=='—').join(' / ')||'—'}</td>
-      <td><span class="ss ${d.en==='○'?'so':d.en==='✕'?'sn':'sp'}">${d.en}</span></td>
-      <td><span class="ss ${d.th==='○'?'so':d.th==='✕'?'sn':'sp'}">${d.th}</span></td>
-      <td><span class="ss ${d.ja==='○'?'so':d.ja==='✕'?'sn':'sp'}">${d.ja}</span></td>
-      <td style="font-size:.78rem;color:var(--text-dim)">${d.nm}</td>
-    </tr>`).join('')}
-    </tbody>`;
-}
-
-function renderThai(){
-  document.getElementById('thg').innerHTML=TH.map(d=>`
-    <div class="tcard">
-      <div class="tsrow">
-        <div class="tsym">${d.s}</div>
-        <span class="tbadge">${d.tp}</span>
-        <span class="tex">${d.ex}</span>
-        ${d.mn!=='—'?`<span style="color:var(--text-dim);font-size:.83rem">「${d.mn}」</span>`:''}
-      </div>
-      <div class="tdesc">${d.desc}</div>
-      <div class="ttip">${d.tip}</div>
-    </div>`).join('');
-}
-
-function renderTips(){
-  document.getElementById('tipg').innerHTML=TIPS.map(t=>`
-    <div class="tblock"><h3>${t.ic} ${t.tl}</h3><ul>${t.items.map(i=>`<li>${i}</li>`).join('')}</ul></div>`).join('');
-}
-
-// ── FILTER ─────────────────────────────────
-function filter(sec){
-  const q=document.getElementById(sec==='vowels'?'vsrch':'csrch').value.toLowerCase();
-  const lf=LF[sec];
-  const gid=sec==='vowels'?'vg':'cg';
-  const cid=sec==='vowels'?'vc':'cc';
-  document.querySelectorAll(`#${gid} .card`).forEach(c=>{
-    const ms=!q||c.dataset.s.toLowerCase().includes(q)||c.dataset.w.toLowerCase().includes(q);
-    let ml=true;
-    if(lf==='en')ml=c.dataset.en==='○';
-    else if(lf==='th')ml=c.dataset.th==='○'||c.dataset.th.includes('△');
-    else if(lf==='ja')ml=c.dataset.ja==='○'||c.dataset.ja.includes('△');
-    c.classList.toggle('hidden',!(ms&&ml));
-  });
-  upd(cid,gid);
-}
-
-function setF(sec,lang,btn){
-  LF[sec]=lang;
-  btn.closest('.toolbar').querySelectorAll('.fbtn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  filter(sec);
-}
-
-// ── NAV ────────────────────────────────────
-function showSec(id,btn){
-  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  document.querySelectorAll('.nbtn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-}
-
-// ── SPEECH ─────────────────────────────────
-let cur=null;
-function speak(w,lang,btn){
-  if(!('speechSynthesis' in window)){alert('このブラウザは音声合成に対応していません');return;}
-  speechSynthesis.cancel();
-  const card=btn.closest('.card');
-  if(cur)cur.classList.remove('speaking');
-  cur=card;card.classList.add('speaking');
-  const u=new SpeechSynthesisUtterance(w);
-  u.lang=lang;u.rate=0.85;
-  u.onend=u.onerror=()=>card.classList.remove('speaking');
-  speechSynthesis.speak(u);
-}
-
-// ── TONE DATA ──────────────────────────────
-const TONES5=[
-  {
-    id:'mid',cls:'tc-mid',num:'第1声',nameTh:'สามัญ',nameJa:'中平調（サマン）',
-    mark:'なし（基本）',markTh:'（符号なし）',
-    pitch:'中くらいの高さで平らに',color:'var(--text-dim)',
-    curve:'M10,24 L110,24',
-    ex:[
-      {th:'กา',rom:'kaa',mn:'カラス・やかん'},
-      {th:'นา',rom:'naa',mn:'水田'},
-      {th:'มา',rom:'maa',mn:'来る'},
-      {th:'ปลา',rom:'bplaa',mn:'魚'},
-    ],
-    tip:'音の高さを変えずに「フラット」に話す。日本語の普通の音の高さに近い。'
-  },
-  {
-    id:'low',cls:'tc-low',num:'第2声',nameTh:'เอก',nameJa:'低降調（エーク）',
-    mark:'ไม้เอก（่）',markTh:'่',
-    pitch:'低めの高さから少し下がる',color:'#9898f5',
-    curve:'M10,28 Q60,32 110,36',
-    ex:[
-      {th:'ข่า',rom:'khàa',mn:'ガランガル（香辛料）'},
-      {th:'เก่า',rom:'gào',mn:'古い'},
-      {th:'ไข่',rom:'khài',mn:'卵'},
-      {th:'หน่าย',rom:'nàai',mn:'飽き飽きした'},
-    ],
-    tip:'低いところで少し下がる。喉をリラックスさせて低く抑えた声で話す感覚。'
-  },
-  {
-    id:'fall',cls:'tc-fall',num:'第3声',nameTh:'โท',nameJa:'高降調（トー）',
-    mark:'ไม้โท（้）',markTh:'้',
-    pitch:'高いところから低く急降下',color:'#e07878',
-    curve:'M10,10 Q50,16 110,38',
-    ex:[
-      {th:'ข้าว',rom:'khâao',mn:'米'},
-      {th:'น้า',rom:'náaa',mn:'叔父/叔母（母方）'},
-      {th:'ก้าว',rom:'gâao',mn:'一歩'},
-      {th:'ข้า',rom:'khâa',mn:'私（古語）/奴隷'},
-    ],
-    tip:'高から一気に低く落とす。日本語で驚いたときの「えーっ↘」のような下降。'
-  },
-  {
-    id:'high',cls:'tc-high',num:'第4声',nameTh:'ตรี',nameJa:'高平調（トリー）',
-    mark:'ไม้ตรี（๊）または低クラス+้',markTh:'๊',
-    pitch:'高めの高さで平らに（やや緊張感）',color:'var(--gold)',
-    curve:'M10,10 L110,10',
-    ex:[
-      {th:'ม้า',rom:'máa',mn:'馬'},
-      {th:'น้ำ',rom:'náam',mn:'水'},
-      {th:'ข้าม',rom:'kháam',mn:'渡る'},
-      {th:'ช้าง',rom:'cháang',mn:'象'},
-    ],
-    tip:'高めで緊張した声。鼻腔に響かせるイメージで高く保つ。'
-  },
-  {
-    id:'rise',cls:'tc-rise',num:'第5声',nameTh:'จัตวา',nameJa:'低昇調（チャットワー）',
-    mark:'ไม้จัตวา（๋）または高クラス無符号',markTh:'๋',
-    pitch:'低いところからゆっくり上がる',color:'var(--ok)',
-    curve:'M10,36 Q60,28 110,10',
-    ex:[
-      {th:'หมา',rom:'mǎa',mn:'犬'},
-      {th:'สวย',rom:'sǔuai',mn:'美しい'},
-      {th:'ขา',rom:'khǎa',mn:'脚'},
-      {th:'ใหม่',rom:'mài',mn:'新しい'},
-    ],
-    tip:'低から高へゆっくり上がる。疑問文のような上昇感。「本当に？↗」のイメージ。'
-  },
-];
-
-const CLS=[
-  {
-    name:'高クラス（อักษรสูง）',cls:'cls-h',badge:'cls-h',
-    chars:'ข ฃ ฉ ฐ ถ ผ ฝ ศ ษ ส ห',
-    count:'11文字',
-    default:'符号なし→上昇調（จัตวา）',
-    marks:['なし→上昇','่→低','้→下降'],
-    tip:'「ข（コー カイ）」「ส（ソー スア）」「ห（ホー ヒープ）」など呼気を伴う音が多い。覚え方：高クラスは「息が多い音（無声＋有気）」と関連。'
-  },
-  {
-    name:'中クラス（อักษรกลาง）',cls:'cls-m',badge:'cls-m',
-    chars:'ก จ ด ต บ ป อ',
-    count:'9文字（อ含む）',
-    default:'符号なし→中調（สามัญ）',
-    marks:['なし→中','่→低','้→下降','๊→高','๋→上昇'],
-    tip:'最も少ない7～9文字グループ。「ก（ゴー ガイ）」「บ（ボー バイマイ）」「ป（ポー ブラー）」など基本子音。全声調符号が使える唯一のクラス。'
-  },
-  {
-    name:'低クラス（อักษรต่ำ）',cls:'cls-l',badge:'cls-l',
-    chars:'ค ฅ ฆ ง ช ซ ฌ ญ ณ น ม ย ร ล ว ฬ ฮ',
-    count:'24文字（最多）',
-    default:'符号なし→中調（สามัญ）',
-    marks:['なし→中','่→下降','้→高'],
-    tip:'低クラスに「ห」を前置すると高クラスと同じ声調になる（例：หน หม หว）。これが「นำ（前置詞）หน」と呼ばれる規則。低クラスは鼻音・共鳴音が多い。'
-  },
-];
-
-const PAIRS=[
-  {title:'「マー」系 — 生き物・動作',words:[
-    {th:'มา',rom:'maa',tone:'mid',mn:'来る（動詞）'},
-    {th:'ม้า',rom:'máa',tone:'high',mn:'馬'},
-    {th:'หมา',rom:'mǎa',tone:'rise',mn:'犬'},
-    {th:'ม่า',rom:'mâa',tone:'fall',mn:'（古語）絡まる'},
-  ]},
-  {title:'「カー」系 — 身体・植物・意味',words:[
-    {th:'ขา',rom:'khǎa',tone:'rise',mn:'脚'},
-    {th:'ข่า',rom:'khàa',tone:'low',mn:'ガランガル（香辛料）'},
-    {th:'ข้า',rom:'khâa',tone:'fall',mn:'私（古語）／奴隷'},
-    {th:'คา',rom:'kha',tone:'mid',mn:'引っかかる・詰まる'},
-  ]},
-  {title:'「ガーン」系 — 仕事・時間',words:[
-    {th:'กาน',rom:'gaan',tone:'mid',mn:'（茎・柄）'},
-    {th:'ก้าน',rom:'gâan',tone:'fall',mn:'茎・柄（植物）'},
-    {th:'การ',rom:'gaan',tone:'mid',mn:'〜すること（動名詞化）'},
-    {th:'ข้าน',rom:'khâan',tone:'fall',mn:'（方言）'},
-  ]},
-  {title:'「パイ」系 — 移動・増減',words:[
-    {th:'ไป',rom:'bpai',tone:'mid',mn:'行く'},
-    {th:'ใบ',rom:'bai',tone:'mid',mn:'葉っぱ・紙'},
-    {th:'ไป่',rom:'bpài',tone:'low',mn:'（否定・古語）'},
-    {th:'ไป้',rom:'bpâi',tone:'fall',mn:'（方言）'},
-  ]},
-  {title:'「カーオ」系 — 米・白・山',words:[
-    {th:'ข้าว',rom:'khâao',tone:'fall',mn:'米（ご飯）'},
-    {th:'เขา',rom:'kháo',tone:'high',mn:'彼／彼女／山'},
-    {th:'เข้า',rom:'khâo',tone:'fall',mn:'入る'},
-    {th:'เก้า',rom:'gâo',tone:'fall',mn:'9（数字）'},
-  ]},
-  {title:'「サー」系 — 色・形容詞',words:[
-    {th:'สา',rom:'sǎa',tone:'rise',mn:'枝ヤシ'},
-    {th:'ส้า',rom:'sâa',tone:'fall',mn:'（古語）'},
-    {th:'สี',rom:'sǐi',tone:'rise',mn:'色'},
-    {th:'ซี',rom:'sii',tone:'mid',mn:'ねえ（呼びかけ）'},
-  ]},
-];
-
-const MNEMONICS=[
-  {ic:'🎵',h:'5声調を音楽で覚える',items:[
-    '<strong>中（สามัญ）</strong>：ミ ── 普通の会話音。「普段の自分の声」',
-    '<strong>低（เอก）</strong>：レ↘ 少し下がる。「え～（低く）」という感じ',
-    '<strong>下降（โท）</strong>：ソ↘↘ドまで落ちる。「ええっ↘↘」という驚き',
-    '<strong>高（ตรี）</strong>：ラ ── 高め平坦。「はい！（きっぱり）」という感じ',
-    '<strong>上昇（จัตวา）</strong>：レ↗ラ 低から上がる。「え？（疑問）」という上昇',
-  ]},
-  {ic:'🗣️',h:'声調を「感情」でイメージする',items:[
-    '<strong>中調</strong>：📢 普通に話す「それは本です」',
-    '<strong>低調</strong>：😔 少し落ち込んだ「まあ…そうだね」',
-    '<strong>下降調</strong>：😠 怒った「だーめ！↘」命令調',
-    '<strong>高調</strong>：😤 強調した「絶対！（高く）」',
-    '<strong>上昇調</strong>：🤔 疑問・確認「ほんと？↗」',
-  ]},
-  {ic:'📝',h:'符号の見た目で覚える',items:[
-    '<strong>่（ไม้เอก）</strong>：棒1本 → 第1号の低い声',
-    '<strong>้（ไม้โท）</strong>：丸に棒 → 落ちる（下降）',
-    '<strong>๊（ไม้ตรี）</strong>：高く伸びた形 → 高調',
-    '<strong>๋（ไม้จัตวา）</strong>：上向き → 上昇調',
-    'まず่（低）と้（下降）の2つを完璧にすると基礎が固まる。',
-  ]},
-  {ic:'🐘',h:'有名な「象・馬・犬・来る」セットで練習',items:[
-    '<strong>ช้าง（チャーン）</strong> = 象（下降調）',
-    '<strong>ม้า（マー）</strong> = 馬（高調）',
-    '<strong>หมา（マー）</strong> = 犬（上昇調）',
-    '<strong>มา（マー）</strong> = 来る（中調）',
-    'この4語はすべて「マー」に近い音なのに声調で全く別の意味！タイ語声調の代表練習。',
-  ]},
-  {ic:'🔢',h:'子音クラスの覚え方',items:[
-    '<strong>高クラス</strong>：「<span class="tcode">ข ฉ ถ ผ ฝ ส ห</span>」── 息を強く出す音（無声有気）',
-    '<strong>中クラス</strong>：「<span class="tcode">ก จ ด ต บ ป</span>」── 少数精鋭の中間組',
-    '<strong>低クラス</strong>：「<span class="tcode">ค ง ช น ม ย ร ล ว</span>」── 鼻音・有声音が多い',
-    '語呂合わせ：高クラスは「高校先生（ข)( ฉ)( ถ)( ผ)( ฝ)( ส)( ห)」と声に出して覚える',
-    '低クラスに「ห」を前置すると高クラス化する（例：หน, หม, หว）',
-  ]},
-  {ic:'🎯',h:'初心者が最初に覚えるべき重要声調',items:[
-    '<strong>優先度 ★★★</strong>：ข้าว（米・下降）、น้ำ（水・高）、ไป（行く・中）',
-    '<strong>優先度 ★★★</strong>：สวัสดี（挨拶・中）、ขอบคุณ（ありがとう・中・上昇）',
-    '<strong>絶対避けたい間違い</strong>：ม้า（馬）をมา（来る）と発音すると「馬が来い」になる',
-    '<strong>絶対避けたい間違い</strong>：หมา（犬）をมา（来る）と発音すると「犬来い」になる',
-    '<strong>学習法</strong>：最初の3ヶ月は声調記号付き教材だけを使い、声調なしテキストは避ける',
-  ]},
-];
-
-const QUIZ_DATA=[
-  {th:'ข้าว',ans:'下降調（โท）',opts:['中調（สามัญ）','低調（เอก）','下降調（โท）','高調（ตรี）','上昇調（จัตวา）']},
-  {th:'ม้า',ans:'高調（ตรี）',opts:['中調（สามัญ）','低調（เอก）','下降調（โท）','高調（ตรี）','上昇調（จัตวา）']},
-  {th:'หมา',ans:'上昇調（จัตวา）',opts:['中調（สามัญ）','低調（เอก）','下降調（โท）','高調（ตรี）','上昇調（จัตวา）']},
-  {th:'มา',ans:'中調（สามัญ）',opts:['中調（สามัญ）','低調（เอก）','下降調（โท）','高調（ตรี）','上昇調（จัตวา）']},
-  {th:'เก่า',ans:'低調（เอก）',opts:['中調（สามัญ）','低調（เอก）','下降調（โท）','高調（ตรี）','上昇調（จัตวา）']},
-  {th:'ขา',ans:'上昇調（จัตวา）',opts:['中調（สามัญ）','低調（เอก）','下降調（โท）','高調（ตรี）','上昇調（จัตวา）']},
-  {th:'น้ำ',ans:'高調（ตรี）',opts:['中調（สามัญ）','低調（เอก）','下降調（โท）','高調（ตรี）','上昇調（จัตวา）']},
-  {th:'ไข่',ans:'低調（เอก）',opts:['中調（สามัญ）','低調（เอก）','下降調（โท）','高調（ตรี）','上昇調（จัตวา）']},
-];
-
-// ── TONE RENDERS ──────────────────────────
-function renderTones(){
-  // 5 tone cards
-  const toneClass={mid:'pt-mid',low:'pt-low',fall:'pt-fall',high:'pt-high',rise:'pt-rise'};
-  document.getElementById('tone5g').innerHTML=TONES5.map(t=>`
-    <div class="tone-card ${t.cls}">
-      <div class="tc-num">${t.num}</div>
-      <div class="tc-name-th" style="color:${t.color}">${t.nameTh}</div>
-      <div class="tc-name-ja">${t.nameJa}</div>
-      <div class="tc-mark">
-        <span class="tc-sym" style="color:${t.color}">${t.markTh}</span>
-        <span class="tc-mark-name">${t.mark}</span>
-      </div>
-      <svg class="tc-curve" viewBox="0 0 120 48" xmlns="http://www.w3.org/2000/svg">
-        <line x1="0" y1="36" x2="120" y2="36" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
-        <line x1="0" y1="12" x2="120" y2="12" stroke="rgba(255,255,255,.05)" stroke-width="1"/>
-        <path d="${t.curve}" stroke="${t.color}" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-        <text x="4" y="46" font-size="8" fill="rgba(255,255,255,.2)">低</text>
-        <text x="4" y="9" font-size="8" fill="rgba(255,255,255,.2)">高</text>
-      </svg>
-      <span class="tc-pitch">${t.pitch}</span>
-      <div class="tc-ex">${t.ex.map(e=>`
-        <div class="tc-ex-row">
-          <span class="tc-ex-th" style="color:${t.color}">${e.th}</span>
-          <span class="tc-ex-rom">${e.rom}</span>
-          <span class="tc-ex-mn">${e.mn}</span>
-        </div>`).join('')}
-      </div>
-      <div class="tc-tip">💡 ${t.tip}</div>
-    </div>`).join('');
-
-  // Pitch SVG diagram
-  const svg=document.getElementById('pitch-svg');
-  const curves=[
-    {d:'M60,65 L220,65',c:'#6f92b8',l:'สามัญ（中）'},
-    {d:'M260,72 Q340,76 420,80',c:'#9898f5',l:'เอก（低）'},
-    {d:'M60,30 Q130,40 220,75',c:'#e07878',l:'โท（下降）'},
-    {d:'M260,22 L420,22',c:'#f0c048',l:'ตรี（高）'},
-    {d:'M460,80 Q540,58 640,22',c:'#48c88a',l:'จัตวา（上昇）'},
-  ];
-  svg.innerHTML=`
-    <rect width="700" height="130" fill="var(--surface2)" rx="8"/>
-    <line x1="20" y1="20" x2="20" y2="110" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
-    <line x1="20" y1="110" x2="680" y2="110" stroke="rgba(255,255,255,.1)" stroke-width="1"/>
-    <line x1="20" y1="65" x2="680" y2="65" stroke="rgba(255,255,255,.05)" stroke-width="1" stroke-dasharray="4,4"/>
-    <text x="8" y="24" font-size="9" fill="rgba(255,255,255,.25)" font-family="sans-serif">高</text>
-    <text x="8" y="69" font-size="9" fill="rgba(255,255,255,.25)" font-family="sans-serif">中</text>
-    <text x="8" y="113" font-size="9" fill="rgba(255,255,255,.25)" font-family="sans-serif">低</text>
-    ${curves.map(c=>`<path d="${c.d}" stroke="${c.c}" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`).join('')}
-  `;
-
-  // Consonant classes
-  document.getElementById('cls-grid').innerHTML=CLS.map(c=>`
-    <div class="cls-card">
-      <div class="cls-head">
-        <span class="cls-badge ${c.badge}" style="padding:4px 12px;border-radius:100px;font-size:.75rem;font-weight:700">${c.name}</span>
-        <span style="font-size:.75rem;color:var(--text-muted)">${c.count}</span>
-      </div>
-      <div class="cls-chars">${c.chars}</div>
-      <div class="cls-count">デフォルト声調：${c.default}</div>
-      <div class="cls-tones">${c.marks.map(m=>`<span class="cls-tone-chip">${m}</span>`).join('')}</div>
-      <div class="cls-tip">💬 ${c.tip}</div>
-    </div>`).join('');
-
-  // Minimal pairs
-  const toneMap={mid:'pt-mid',low:'pt-low',fall:'pt-fall',high:'pt-high',rise:'pt-rise'};
-  const toneLabel={mid:'中調',low:'低調',fall:'下降調',high:'高調',rise:'上昇調'};
-  document.getElementById('pair-grid').innerHTML=PAIRS.map(p=>`
-    <div class="pair-card">
-      <div class="pair-title">${p.title}</div>
-      ${p.words.map(w=>`
-        <div class="pair-row">
-          <span class="pair-th">${w.th}</span>
-          <span class="pair-rom">${w.rom}</span>
-          <span class="pair-tone ${toneMap[w.tone]}">${toneLabel[w.tone]}</span>
-          <span class="pair-mn">${w.mn}</span>
-        </div>`).join('')}
-    </div>`).join('');
-
-  // Mnemonics
-  document.getElementById('mne-grid').innerHTML=MNEMONICS.map(m=>`
-    <div class="mne-card"><h3>${m.ic} ${m.h}</h3><ul>${m.items.map(i=>`<li>${i}</li>`).join('')}</ul></div>`).join('');
-
-  // Quiz
-  renderQuiz();
-}
-
-function renderQuiz(){
-  const shuffled=[...QUIZ_DATA].sort(()=>Math.random()-.5).slice(0,5);
-  document.getElementById('quiz-container').innerHTML=shuffled.map((q,i)=>`
-    <div class="quiz-row" id="qr${i}">
-      <span class="quiz-word">${q.th}</span>
-      <span style="font-size:.82rem;color:var(--text-dim);min-width:60px">${q.opts.find(o=>o===q.ans)?'':'—'}</span>
-      ${q.opts.map(o=>`<button class="quiz-btn" onclick="checkQ(${i},'${o}','${q.ans}',this)">${o}</button>`).join('')}
-      <span class="quiz-ans" id="qa${i}"></span>
-    </div>`).join('');
-}
-
-function checkQ(i,sel,ans,btn){
-  const row=document.getElementById('qr'+i);
-  row.querySelectorAll('.quiz-btn').forEach(b=>{b.disabled=true;b.style.opacity='.5';});
-  btn.style.opacity='1';
-  const span=document.getElementById('qa'+i);
-  if(sel===ans){btn.classList.add('correct');span.textContent='✅ 正解！';span.className='quiz-ans show ok';}
-  else{btn.classList.add('wrong');span.textContent='❌ 不正解。正解：'+ans;span.className='quiz-ans show ng';}
-}
-
-function resetQuiz(){renderQuiz();}
-
-
-renderGrid('vg',V,'vc');
-renderGrid('cg',C,'cc');
-renderTbl('vtbl',V);
-renderTbl('ctbl2',C);
-renderThai();
-renderTips();
-renderTones();
-</script>
-</body>
-</html>
+</div>
+</body></html>
